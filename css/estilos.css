@@ -44,13 +44,10 @@ main h2::before {
 form {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 .input-field {
     position: relative;   
-}
-
-form .input-field:first-child {
-    margin-bottom: 1.5rem;
 }
 
 .input-field .underline::before {
@@ -91,10 +88,10 @@ form .input-field:first-child {
 }
 
 form input[type="submit"] {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     padding: 0.4rem;
     background: linear-gradient(to left, #FF2525, #FFE53B );
-    border-radius: 10px;
+    border-radius: 25px;
     cursor: pointer;
     font-size: .9rem;
     font-weight: 300;
@@ -145,4 +142,3 @@ form input[type="submit"]:hover {
 .footer .social-field.facebook {
     background: linear-gradient(to right, #1e3c72, #2a5298);
 }
-
