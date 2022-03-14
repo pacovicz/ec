@@ -34,11 +34,17 @@ main h2::before {
     content: '';
     position: absolute;
     height: 3px;
-    width: 22px;
+    width: 23px;
     bottom: 2px;
     left: 0;
     border-radius: 8px;
     background: linear-gradient(45deg, #FFE53B, #FF2525);
+}
+
+main h3 {
+    font-weight: 1000;
+    margin-bottom: 2rem;
+    position: relative;
 }
 
 form {
@@ -141,4 +147,13 @@ form input[type="submit"]:hover {
 
 .footer .social-field.facebook {
     background: linear-gradient(to right, #1e3c72, #2a5298);
+}
+
+.forget-pwd {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.forget-pwd a {
+    color: rgba(0, 0, 0, 0.7);
 }
