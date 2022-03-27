@@ -35,7 +35,7 @@ main h2::before {
     position: absolute;
     height: 3px;
     width: 23px;
-    bottom: 2px;
+    bottom: 2px; 
     left: 0;
     border-radius: 8px;
     background: linear-gradient(45deg, #FFE53B, #FF2525);
@@ -94,7 +94,6 @@ form {
 }
 
 form input[type="submit"] {
-    margin-top: 1.5rem;
     padding: 0.4rem;
     background: linear-gradient(to left, #FF2525, #FFE53B );
     border-radius: 25px;
@@ -122,38 +121,8 @@ form input[type="submit"]:hover {
     text-align: center;
 }
 
-.footer .social-field {
-    padding: 0.4rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    width: 100%;
-    cursor: pointer;
-    margin-top: 0.5rem;
-}
-
-.footer .social-field a {
-    text-decoration: none;
-    color: white;
-}
-
-.footer .social-field a i {
-    margin: 0 0.5rem;
-    width: 15px;
-
-}
-.footer .social-field.twitter {
-    background: linear-gradient(to right, #56a7f2, #468aca);
-}
-
-.footer .social-field.facebook {
-    background: linear-gradient(to right, #1e3c72, #2a5298);
-}
-
 .forget-pwd {
     text-align: center;
     margin-top: 15px;
-}
-
-.forget-pwd a {
-    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 5px;
 }
