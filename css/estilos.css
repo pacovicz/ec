@@ -126,3 +126,8 @@ form input[type="submit"]:hover {
     margin-top: 15px;
     margin-bottom: 5px;
 }
+
+.signup {
+    text-align: center;
+    margin-top: 15px;
+}
