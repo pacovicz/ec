@@ -1,26 +1,66 @@
-(function(){
-    var $txt = blg.$('#text');
+function signup(event) {
+  event.preventDefault();
 
-    var padraoCPF = /^([0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2})$/;
-    var padraoEmail = /^[\w._-]+@[\w_.-]+\.[a-z]/i;
-    
-    $text.addEventListener('input', function(){
-        var texto = this.value;
-    })
-})()
+  if (isFormInvalid(event.target)) {
+    //avisar usuario
+  }
 
+  //continuar
+}
 
+function login(event) {
+  event.preventDefault();
 
-var expresso = /^([0-9]{8}[-][0-9]{4})$/;
-var input = "12345678-1234";
+  if (isFormInvalid(event.target)) {
+    //avisar usuario
+  }
 
-var valcnpj = /^([0-9]{2}[.][0-9]{3}[.][0-9]{3}[/][0-9]{4}[-][0-9]{2})$/;
-var inputcnpj = "33.555.921/0001-70";
+  //continuar
+}
 
-var valnum = /^([(][0-9]{2}[)][0-9]{5}[-][0-9]{4})$/;
-var inputnum = "(41)98888-5675";
+function passwordForgotten(event) {
+  event.preventDefault();
 
-console.log(expresso.test(input));
-console.log(valcpf.test(inputcpf));
-console.log(valcnpj.test(inputcnpj));
-console.log(valnum.test(inputnum));
+  if (isFormInvalid(event.target)) {
+    //avisar usuario
+  }
+
+  //continuar
+}
+
+function resetPassword(event) {
+  event.preventDefault();
+
+  if (isFormInvalid(event.target)) {
+    //avisar usuario
+  }
+
+  //continuar
+}
+
+const validations = {
+  username: /^\w+$/,
+  cpf: /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/,
+  email:
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
+  password: /.{8,}/,
+};
+
+function isInputValid(name, value) {
+  const validation = validations[name];
+  if (!validation) return true;
+
+  return validation.test(value);
+}
+
+function isFormInvalid(inputs) {
+  for (const input of inputs) {
+    if (!isInputValid(input.name, input.value)) {
+      //avisar usuario
+      alert(input.name + " invalido");
+      return true;
+    }
+  }
+
+  return false;
+}

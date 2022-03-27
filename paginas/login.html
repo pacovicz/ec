@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css/estilos.css" />
     <script src="../js/script.js" async defer></script>
     <title>Login</title>
-</head>
-<body>
+  </head>
+  <body>
     <main class="container">
-        <h2>Login</h2>
-        <form action="">
-            <div class="input-field">
-                <input type="text" name="email" id="email" placeholder="Enter your e-mail" required>
-                <div class="underline"></div>
-            </div>
-            <div class="input-field">
-                <input type="password" name="pwd" id="pwd" placeholder="Enter your password" required>
-                <div class="underline"></div>
-            </div>
-        <input type="submit" value="Continue">
-</body>
+      <h2>Login</h2>
+      <form onsubmit="login(event)">
+        <div class="input-field">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="E-mail"
+            required
+          />
+          <div class="underline"></div>
+        </div>
+        <div class="input-field">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <div class="underline"></div>
+        </div>
+        <button type="submit">Continue</button>
+        <div class="text-center">
+          <a href="./forgot.html">forgot your password?</a>
+          <a href="../index.html">sign up</a>
+        </div>
+      </form>
+    </main>
+  </body>
 </html>

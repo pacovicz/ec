@@ -6,23 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../css/estilos.css" />
     <script src="../js/script.js" async defer></script>
-    <title>recover</title>
+    <title>forgot</title>
   </head>
   <body>
     <main class="container">
-      <h3>Recover your password</h3>
-      <form onsubmit="recoverPassword(event)">
+      <h3>Forgot your password?</h3>
+      <form onsubmit="passwordForgotten(event)">
         <div class="input-field">
           <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="E-mail"
             required
           />
           <div class="underline"></div>
         </div>
         <button type="submit">Continue</button>
+        <div class="text-center">
+          <a href="./login.html">back to sign in</a>
+        </div>
       </form>
     </main>
   </body>

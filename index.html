@@ -1,39 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/estilos.css" />
     <script src="./js/script.js" async defer></script>
-    <script src="https://kit.fontawesome.com/1533614542.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/1533614542.js"
+      crossorigin="anonymous"
+    ></script>
     <title>EC</title>
-</head>
-<body>
+  </head>
+  <body>
     <main class="container">
-        <h2>Sign up</h2>
-        <form action="">
-            <div class="input-field">
-                <input type="text" name="username" id="username" placeholder="Enter your username" required>
-                <div class="underline"></div>
-            </div>
-            <div class="input-field">
-                <input type="text" name="email" id="email" placeholder="Enter your e-mail" required>
-                <div class="underline"></div>
-            </div>
-            <div class="input-field">
-                <input type="password" name="pwd" id="pwd" placeholder="Enter your password" required>
-                <div class="underline"></div>
-            </div>
+      <h2>Sign up</h2>
+      <form onsubmit="signup(event)">
+        <div class="input-field">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Username"
+            required
+          />
+          <div class="underline"></div>
+        </div>
+        <div class="input-field">
+          <input type="text" name="cpf" id="cpf" placeholder="CPF" required />
+          <div class="underline"></div>
+        </div>
+        <div class="input-field">
+          <input
+            type="text"
+            name="image"
+            id="image"
+            placeholder="Image"
+            required
+          />
+          <div class="underline"></div>
+        </div>
+        <div class="input-field">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="E-mail"
+            required
+          />
+          <div class="underline"></div>
+        </div>
+        <div class="input-field">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <div class="underline"></div>
+        </div>
 
-            <input type="submit" value="Continue">
-        </form>
-            <div class="forget-pwd">
-                <a href="paginas/recover.html">forgot your password?</a>
-            </div>
-            <div class="signup">
-                <a href="paginas/login.html">sign in</a>
-            </div>
+        <button type="submit">Continue</button>
+      </form>
+      <div class="text-center">
+        <a href="paginas/login.html">sign in</a>
+      </div>
     </main>
-</body>
+  </body>
 </html>
