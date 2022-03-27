@@ -41,16 +41,16 @@ function resetPassword(event) {
 const validations = {
   username: /^\w+$/,
   cpf: /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/,
-  email:
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
-  password: /.{8,}/,
+  email: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
+  password: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@]).{8,}$/,
 };
 
 function isInputValid(name, value) {
   const validation = validations[name];
   if (!validation) return true;
-
+  
   return validation.test(value);
+
 }
 
 function isFormInvalid(inputs) {
