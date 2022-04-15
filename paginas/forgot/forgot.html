@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="../css/estilos.css" />
+    <link rel="stylesheet" type="text/css" href="../forgot/estilos.css" />
     <script src="../js/script.js" async defer></script>
-    <title>Login</title>
+    <title>forgot</title>
   </head>
   <body>
     <main class="container">
-      <h2>Login</h2>
-      <form onsubmit="login(event)">
+      <h2>Forgot password?</h2>
+      <form onsubmit="passwordForgotten(event)">
         <div class="input-field">
           <input
             type="email"
@@ -22,20 +22,9 @@
           />
           <div class="underline"></div>
         </div>
-        <div class="input-field">
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-            required
-          />
-          <div class="underline"></div>
-        </div>
         <button type="submit">Continue</button>
         <div class="text-center">
-          <a href="./forgot.html">forgot your password?</a>
-          <a href="../index.html">register</a>
+          <a href="../login/login.html">back to login</a>
         </div>
       </form>
     </main>
