@@ -15,8 +15,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-
   overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #06c;
+  font-size: 17px;
 }
 
 main.container {
@@ -146,6 +151,10 @@ button:hover {
   gap: 8px;
   text-align: center;
   margin-top: 12px;
+}
+
+a {
+  text-decoration: none;
 }
 
 @media (max-width: 600px) {

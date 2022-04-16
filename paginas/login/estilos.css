@@ -127,3 +127,10 @@ button:hover {
         margin: 20px;
     }
 }
+
+a {
+    text-decoration: none;
+    color: #06c;
+    font-size: 17px;
+  }
+  
