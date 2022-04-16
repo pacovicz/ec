@@ -13,64 +13,23 @@ body {
   min-height: 100vh;
 }
 
-.navbar { 
-  background-color: black;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px;
-}
-
-.navbar-links ul {
-  margin: 0;  
-  padding: 0;
-  display: flex;
-  gap: 5px;
-  padding-right: 10px;
-}
-
-.brand {
-  color: white;
-  font-size: 1.5rem;
-  margin: .5rem;
-}
-
-.navbar-links li {
-  list-style: none;
-}
-
-.nav-icon {
-  display: flex;
-  width: 100%;
-  height: 40px;
-}
-
 .main-container {
   display: flex;
   justify-content: space-around;
   gap: 20px;
-  padding: 20px;
+  padding: 25px;
 }
 
 .container-perfil{
   background: white;
   width: 20%;
-  height: 500px; 
+  height: 400px; 
   padding: 3rem;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.container-itens{
-  background: white;
-  width: 100%;
-  min-height: 100vh;
-  padding: 3rem;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
 }
 
 .profilepic {
@@ -105,6 +64,82 @@ body {
 }
 
 .btn-perfil:hover{
+  background-color: #fcc434;
+  cursor: pointer;
+}
+
+.div-icons {
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.icons {
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+}
+
+.container-itens {
+  background: white;
+  width: 100%;
+  min-height: 94vh;
+  padding: 1.5rem;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+}
+
+.produto {
+  align-content: center;
+  border-color: #fcc434;
+  border-style: dashed;
+  border-radius: 25px;
+  width: 100%;
+  height: 230px;
+}
+
+.itens-setup {
+  border-style: dashed;
+  border-color: black;
+  width: 100%;
+  max-height: 300px;
+  border-radius: 25px;
+  margin: 2px;
+}
+
+.itens-setup a {
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: bolder;
+  margin: 2px;
+}
+
+.btn-setup {
+  display: flex;
+  justify-content: center;
+}
+
+.itens {
+  border-style: double;
+  border-color: #fcc434;
+}
+
+.btn-buy {
+  background-color: #ffb135;
+  border-radius: 25px;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.btn-buy:hover{
   background-color: #fcc434;
   cursor: pointer;
 }
