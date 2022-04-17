@@ -1,11 +1,31 @@
-function signup(event) {
-  event.preventDefault();
-
-  if (isFormInvalid(event.target)) {
-    //avisar usuario
-  }
-
+function signup() {
+  var username = $("#username").val();
+  var cpf = $("#cpf").val();
+  var email = $("#email").val();
+  var senha = $("#password").val();
+  var senhaHash = hashCode(senha);
+  console.log(username, cpf, email, senhaHash);
+  
+  
+  sendToServer(username, cpf, email, senhaHash);
   //continuar
+}
+function sendToServer(username, cpf, email, senhaHash){
+
+  $.ajax({
+      dataType: "json",
+      type: "POST",
+      data: {
+          username: username,
+          cpf: cpf,
+          email: email,
+          senhaHash: senhaHash
+      },
+      url: "php/index.php",
+      success: function( retorno ) {
+          console.log(retorno);
+      }
+  });
 }
 
 function login(event) {
@@ -64,3 +84,9 @@ function isFormInvalid(inputs) {
 
   return false;
 }
+
+function hashCode(str) {
+  return str.split('').reduce((prevHash, currVal) =>
+    (((prevHash << 5) - prevHash) + currVal.charCodeAt(0))|0, 0);
+  }
+
