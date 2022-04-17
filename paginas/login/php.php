@@ -13,8 +13,9 @@
                     $_SESSION['email'] = $linha['email'];
                     $_SESSION['cpf'] = $linha['cpf'];
                     $_SESSION['tempo_criacao'] = time();
-                    $_SESSION['tempo_expira'] = time() + 60;
+                    $_SESSION['tempo_expira'] = time() + 3600;
                     $_SESSION['session_id'] = session_id();
+                    $_SESSION['sessao_valida'] = "false";
                     return 0;
                 }
                 return 1;
@@ -30,11 +31,6 @@
     $senhaHash = $_POST["senhaHash"];
 
     if(login() == 0){
-        
-        echo (file_exists(session_save_path().'/sess_'.$_SESSION['session_id']) ? "Existe!" : "Não existe!");
-        echo $_SESSION['username'];
-        echo $_SESSION['cpf'];
-        echo $_SESSION['email'];
         echo json_encode("0");
     } else if (login() == 1) {
         echo json_encode("1");

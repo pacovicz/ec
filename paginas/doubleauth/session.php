@@ -15,6 +15,7 @@
     } else if(checaSessao() == 1){
         echo json_encode("1");
     } else if(checaSessao() == 2){
+        
         echo json_encode("2");
     }
     ?>
