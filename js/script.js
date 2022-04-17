@@ -1,3 +1,18 @@
+
+function checaSessao(){
+  $.ajax({
+    dataType: "json",
+    type: "POST",
+    data: {
+    },
+    url: "php/session.php",
+    success: function( retorno ) {
+        if(retorno == 0){
+          location.href = "/ec/paginas/principal/principal.html"
+        }
+    }
+});  
+}
 function signup(event) {
   event.preventDefault();
 
@@ -96,4 +111,6 @@ function hashCode(str) {
   return str.split('').reduce((prevHash, currVal) =>
     (((prevHash << 5) - prevHash) + currVal.charCodeAt(0))|0, 0);
   }
+
+  window.onload = checaSessao();
 

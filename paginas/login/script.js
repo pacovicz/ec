@@ -1,3 +1,18 @@
+function checaSessao(){
+  $.ajax({
+    dataType: "json",
+    type: "POST",
+    data: {
+    },
+    url: "session.php",
+    success: function( retorno ) {
+        if(retorno == 0){
+          location.href = "/ec/paginas/principal/principal.html"
+        }
+    }
+});  
+}
+
 function signin() {
     var email = $("#email").val();
     var senha = $("#password").val();
@@ -18,7 +33,7 @@ function sendToServer(email, senhaHash){
         success: function( retorno ) {
             if(retorno == "0"){
               alert("login efetuado!")
-              
+
             } else {
               alert("login errado!");
             }
@@ -31,3 +46,4 @@ function hashCode(str) {
       (((prevHash << 5) - prevHash) + currVal.charCodeAt(0))|0, 0);
     }
   
+    window.onload = checaSessao();
