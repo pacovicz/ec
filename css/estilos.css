@@ -162,9 +162,3 @@ a {
     margin: 20px;
   }
 }
-
-@media (max-width: 1200px) {
-  .sidemenu {
-    display: none;
-  }
-}
