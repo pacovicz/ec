@@ -5,16 +5,40 @@ function checaSessao(){
     data: {
     },
     url: "session.php",
-    success: function( retorno ) {
+    success: function( retorno, retorno2) {
         if(retorno == 0){
-          location.href = "/ec/paginas/principal/principal.html"
+          location.href = "/ec/paginas/principal/principal.html";
+        }
+        if(retorno == 1){
+          location.href = "/ec/paginas/login/login.html";
         }
     }
-});  
+});
+$.ajax({
+  dataType: "json",
+  type: "POST",
+  data: {
+  },
+  url: "recebeEmail.php",
+  success: function( retorno) {
+      document.getElementById("msg").innerHTML = "We've sent a email to " + retorno + " to verify if you are yourself";
+  }
+});
+}
+function enviarEmail(){
+  $.ajax({
+    dataType: "json",
+    type: "POST",
+    data: {
+    },
+    url: "enviaEmail.php",
+    success: function( retorno ) {
+      } 
+  });
 }
 
 function auth() {
-    var email = $("#auth").val();
+    var codigo = $("#codigo").val();
 
     sendToServer(codigo);
     //continuar
@@ -27,13 +51,11 @@ function sendToServer(codigo){
         data: {
             codigo: codigo
         },
-        url: "php.php",
-        success: function( retorno ) {
-            if(retorno == "0"){
-              document.location.reload();
-            } else {
-              document.getElementById("teste").innerHTML = "<div class='teste'>Incorrect email or password.</div>";
-            }
+        url: "auth.php",
+        success: function( retorno ){
+          if(retorno == 0){
+            location.href = "/ec/paginas/principal/principal.html";
+          }
         }
     });
 }
