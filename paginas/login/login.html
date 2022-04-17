@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../login/estilos.css" />
     <script src="../login/script.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <title>Login</title>
   </head>
   <body>
     <main class="container">
       <h2>Login</h2>
-      <form onsubmit="login(event)">
+      <form onsubmit="sigin(event)">
         <div class="input-field">
           <input
             type="email"
@@ -30,9 +31,9 @@
             placeholder="Password"
             required
           />
-          <div class="underline"></div>
+          <div class="underline" id="teste"></div>
         </div>
-        <button type="submit">Continue</button>
+        <button type="button" onclick="signin()">Continue</button>
         <div class="text-center">
           <a href="../forgot/forgot.html">Forgot your password?</a>
           <a href="../../index.html">Register</a>
