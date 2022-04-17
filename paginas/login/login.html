@@ -12,7 +12,7 @@
   <body>
     <main class="container">
       <h2>Login</h2>
-      <form onsubmit="login(event)">
+      <form onsubmit="sigin(event)">
         <div class="input-field">
           <input
             type="email"
@@ -31,9 +31,9 @@
             placeholder="Password"
             required
           />
-          <div class="underline"></div>
+          <div class="underline" id="teste"></div>
         </div>
-        <button type="submit">Continue</button>
+        <button type="button" onclick="signin()">Continue</button>
         <div class="text-center">
           <a href="../forgot/forgot.html">Forgot your password?</a>
           <a href="../../index.html">Register</a>

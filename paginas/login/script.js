@@ -16,7 +16,12 @@ function sendToServer(email, senhaHash){
         },
         url: "php.php",
         success: function( retorno ) {
-            
+            if(retorno == "0"){
+              alert("login efetuado!")
+              
+            } else {
+              alert("login errado!");
+            }
         }
     });
 }

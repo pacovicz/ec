@@ -5,13 +5,16 @@
         $dados = mysqli_query($con, $query);
         $linha = mysqli_fetch_assoc($dados);
         $total = mysqli_num_rows($dados);
-        do {
-            if($linha['email'] == $email){
-                return 1;
-            }
-        } while($linha = mysqli_fetch_assoc($dados));
-        return 0;
+        if ($total > 0){
+            do {
+                if($linha['email'] == $email){
+                    return 1;
+                }
+            } while($linha = mysqli_fetch_assoc($dados));
+            return 0;
+        } else return 0;
     }
+        
     require("dbconnect.php");
     if(mysqli_connect_errno()){
         echo "conexão com a database falhou!: ". mysqli_error();
