@@ -150,7 +150,7 @@ body {
 @media (max-width: 600px)  {
 
   .container-perfil{
-    justify-content:center ;
+    justify-content: center;
     width: 100%;
     background-color: #343434;
     position: fixed;
@@ -160,6 +160,7 @@ body {
     margin-right: auto;
     padding: 0rem;
     height: 60px;
+    box-shadow: none;
   }
 
   .profilepic {
@@ -168,9 +169,10 @@ body {
 
   .avatar {
     width: 100%;
-    height: 38px;
+    height: 35px;
     border-radius: 50%;
-    border-style: none;
+    border-width: 2px;
+    border-style: solid;
   }
 
   .user-name {
