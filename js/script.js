@@ -1,11 +1,53 @@
+
+function checaSessao(){
+  $.ajax({
+    dataType: "json",
+    type: "POST",
+    data: {
+    },
+    url: "php/session.php",
+    success: function( retorno ) {
+        if(retorno == 0){
+          location.href = "/ec/paginas/principal/principal.html"
+        }
+    }
+});  
+}
 function signup(event) {
   event.preventDefault();
 
   if (isFormInvalid(event.target)) {
     //avisar usuario
+  } else {
+  var username = $("#username").val();
+  var cpf = $("#cpf").val();
+  var email = $("#email").val();
+  var senha = $("#password").val();
+  var senhaHash = hashCode(senha);
+  sendToServer(username, cpf, email, senhaHash);
   }
+}
+function sendToServer(username, cpf, email, senhaHash){
 
-  //continuar
+  $.ajax({
+      dataType: "json",
+      type: "POST",
+      data: {
+          username: username,
+          cpf: cpf,
+          email: email,
+          senhaHash: senhaHash
+      },
+      url: "php/index.php",
+      success: function( retorno ) {
+        if(retorno == "0"){
+          alert("Email Cadastrado!")
+          location.href = "paginas/login/login.html"
+        } else if (retorno == "1"){
+          document.getElementById("divAlerta").innerHTML = "<div class='alerta'>Email já Cadastrado!</div>";
+        }
+      }
+  });
 }
 
 function login(event) {
@@ -57,10 +99,18 @@ function isFormInvalid(inputs) {
   for (const input of inputs) {
     if (!isInputValid(input.name, input.value)) {
       //avisar usuario
-      alert(input.name + " invalido");
+      document.getElementById("divAlerta").innerHTML = "<div class='alerta'>" + input.name + " inválido!</div>";
       return true;
     }
   }
 
   return false;
 }
+
+function hashCode(str) {
+  return str.split('').reduce((prevHash, currVal) =>
+    (((prevHash << 5) - prevHash) + currVal.charCodeAt(0))|0, 0);
+  }
+
+  window.onload = checaSessao();
+

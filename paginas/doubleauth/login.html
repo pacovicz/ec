@@ -11,30 +11,20 @@
   </head>
   <body>
     <main class="container">
-      <h2>Login</h2>
-      <form onsubmit="sigin(event)">
+      <h2>Additional Autentication Required</h2>
+      <div>We've sent a email to  to verify if you are yourself.</div>
+      <form onsubmit="">
         <div class="input-field">
           <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="E-mail"
-            required
-          />
-          <div class="underline"></div>
-        </div>
-        <div class="input-field">
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
+            id="codigo"
+            placeholder="Email code"
             required
           />
           <div class="underline"></div>
         </div>
         <div id="teste"></div>
-        <button type="button" onclick="signin()">Continue</button>
+        <button type="button" onclick="enviarEmail()">Send Email</button>
+        <button type="button" onclick="auth()">Continue</button>
         <div class="text-center">
           <a href="../forgot/forgot.html">Forgot your password?</a>
           <a href="../../index.html">Register</a>

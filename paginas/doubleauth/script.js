@@ -6,36 +6,31 @@ function checaSessao(){
     },
     url: "session.php",
     success: function( retorno ) {
-        console.log(retorno);
         if(retorno == 0){
-          location.href = "/ec/paginas/principal/principal.html";
-        } else if (retorno == 2){
-          alert("sessão inválida!");
+          location.href = "/ec/paginas/principal/principal.html"
         }
     }
 });  
 }
 
-function signin() {
-    var email = $("#email").val();
-    var senha = $("#password").val();
-    var senhaHash = hashCode(senha);
-    sendToServer(email, senhaHash);
+function auth() {
+    var email = $("#auth").val();
+
+    sendToServer(codigo);
     //continuar
   }
-function sendToServer(email, senhaHash){
+function sendToServer(codigo){
   
     $.ajax({
         dataType: "json",
         type: "POST",
         data: {
-            email: email,
-            senhaHash: senhaHash
+            codigo: codigo
         },
         url: "php.php",
         success: function( retorno ) {
             if(retorno == "0"){
-              location.href = "/ec/paginas/doubleauth/login.html";
+              document.location.reload();
             } else {
               document.getElementById("teste").innerHTML = "<div class='teste'>Incorrect email or password.</div>";
             }

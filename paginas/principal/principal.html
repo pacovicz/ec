@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="/paginas/principal/estilos.css" />
-    <script src="/paginas/principal/script.js" async defer></script>
+    <script src="script.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <title>Loja</title>
   </head>
   <body>
@@ -19,9 +20,9 @@
           
         </div>
         <div class="name">
-          <span class="user-name">Willin Pacovicz</span>
+          <span class="user-name" id="username"></span>
         </div>
-        <span class="btn-perfil">Exit</span>
+        <span class="btn-perfil" onclick="encerrarSessao()">Exit</span>
         <div class="div-icons">
           <a href="/paginas/profile/profile.html">
             <img class="icons" alt="icons" src="/img/user.png">
