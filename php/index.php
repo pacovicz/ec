@@ -1,4 +1,17 @@
 <?php
+    function validarEmail(){
+        global $email, $con;
+        $query = sprintf("SELECT email FROM cadastro");
+        $dados = mysqli_query($con, $query);
+        $linha = mysqli_fetch_assoc($dados);
+        $total = mysqli_num_rows($dados);
+        do {
+            if($linha['email'] == $email){
+                return 1;
+            }
+        } while($linha = mysqli_fetch_assoc($dados));
+        return 0;
+    }
     require("dbconnect.php");
     if(mysqli_connect_errno()){
         echo "conexão com a database falhou!: ". mysqli_error();
@@ -7,15 +20,20 @@
     $cpf = $_POST["cpf"];
     $email = $_POST["email"];
     $senhaHash = $_POST["senhaHash"];
+
+    
     
     $username = mysqli_real_escape_string($con, $_POST["username"]);
     $cpf = mysqli_real_escape_string($con, $_POST["cpf"]);
     $email = mysqli_real_escape_string($con, $_POST["email"]);
     $senhaHash = mysqli_real_escape_string($con, $_POST["senhaHash"]);
 
-    $insert_intoDB = "INSERT INTO cadastro (username, cpf, email, senhaHash) VALUES ('$username','$cpf','$email','$senhaHash')";
-    mysqli_query($con, $insert_intoDB); 
-
-    echo json_encode("retorno de todos os dados: $username, $cpf, $email, $senhaHash");
+    if(validarEmail() == 0){
+        $insert_intoDB = "INSERT INTO cadastro (username, cpf, email, senhaHash) VALUES ('$username','$cpf','$email','$senhaHash')";
+        mysqli_query($con, $insert_intoDB);
+        echo json_encode("Email Cadastrado.");
+    } else {
+        echo json_encode("Email já existente.");
+    }
 
 ?>

@@ -4,9 +4,6 @@ function signup() {
   var email = $("#email").val();
   var senha = $("#password").val();
   var senhaHash = hashCode(senha);
-  console.log(username, cpf, email, senhaHash);
-  
-  
   sendToServer(username, cpf, email, senhaHash);
   //continuar
 }
@@ -23,7 +20,7 @@ function sendToServer(username, cpf, email, senhaHash){
       },
       url: "php/index.php",
       success: function( retorno ) {
-          console.log(retorno);
+          alert(retorno);
       }
   });
 }
