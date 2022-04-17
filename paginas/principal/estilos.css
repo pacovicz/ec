@@ -93,10 +93,7 @@ body {
 }
 
 .produto {
-  
   align-content: center;
-  border-color: #fcc434;
-  border-style: dashed;
   border-radius: 25px;
   width: 100%;
   height: 230px;
@@ -104,13 +101,18 @@ body {
 
 .itens-setup {
   max-width: 180px;
-  border-style: dashed;
+  border-style: solid;
   border-color: black;
   width: 100%;
   max-width: 180px;
   max-height: 300px;
   border-radius: 25px;
   margin: 2px;
+}
+
+.itens-setup:hover {
+  border-width: 2px;
+  border-color: #ffb135;
 }
 
 .itens-setup a {
@@ -140,6 +142,7 @@ body {
   padding-bottom: 8px;
   font-size: 15px;
   font-weight: bold;
+  margin-bottom: 2px;
 }
 
 .btn-buy:hover{
