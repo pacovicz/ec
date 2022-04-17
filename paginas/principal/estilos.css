@@ -82,6 +82,7 @@ body {
 }
 
 .container-itens {
+  flex-wrap: wrap;
   background: white;
   width: 100%;
   min-height: 94vh;
@@ -93,6 +94,7 @@ body {
 }
 
 .produto {
+  
   align-content: center;
   border-color: #fcc434;
   border-style: dashed;
@@ -102,6 +104,7 @@ body {
 }
 
 .itens-setup {
+  max-width: 180px;
   border-style: dashed;
   border-color: black;
   width: 100%;
