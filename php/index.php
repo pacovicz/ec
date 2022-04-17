@@ -31,9 +31,9 @@
     if(validarEmail() == 0){
         $insert_intoDB = "INSERT INTO cadastro (username, cpf, email, senhaHash) VALUES ('$username','$cpf','$email','$senhaHash')";
         mysqli_query($con, $insert_intoDB);
-        echo json_encode("Email Cadastrado.");
+        echo json_encode("0");
     } else {
-        echo json_encode("Email já existente.");
+        echo json_encode("1");
     }
 
 ?>

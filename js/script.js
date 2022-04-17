@@ -1,11 +1,16 @@
-function signup() {
+function signup(event) {
+  event.preventDefault();
+
+  if (isFormInvalid(event.target)) {
+    //avisar usuario
+  } else {
   var username = $("#username").val();
   var cpf = $("#cpf").val();
   var email = $("#email").val();
   var senha = $("#password").val();
   var senhaHash = hashCode(senha);
   sendToServer(username, cpf, email, senhaHash);
-  //continuar
+  }
 }
 function sendToServer(username, cpf, email, senhaHash){
 
@@ -20,7 +25,12 @@ function sendToServer(username, cpf, email, senhaHash){
       },
       url: "php/index.php",
       success: function( retorno ) {
-          alert(retorno);
+        if(retorno == "0"){
+          alert("Email Cadastrado!")
+          location.href = "paginas/login/login.html"
+        } else if (retorno == "1"){
+          document.getElementById("divAlerta").innerHTML = "<div class='alerta'>Email já Cadastrado!</div>";
+        }
       }
   });
 }
@@ -74,7 +84,7 @@ function isFormInvalid(inputs) {
   for (const input of inputs) {
     if (!isInputValid(input.name, input.value)) {
       //avisar usuario
-      alert(input.name + " invalido");
+      document.getElementById("divAlerta").innerHTML = "<div class='alerta'>" + input.name + " inválido!</div>";
       return true;
     }
   }
