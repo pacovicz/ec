@@ -41,8 +41,7 @@ function sendToServer(username, cpf, email, senhaHash){
       url: "php/index.php",
       success: function( retorno ) {
         if(retorno == "0"){
-          alert("Email Cadastrado!")
-          location.href = "paginas/login/login.html"
+          location.href = "paginas/doubleauthCadastro/daCadastro.html"
         } else if (retorno == "1"){
           document.getElementById("divAlerta").innerHTML = "<div class='alerta'>Email já Cadastrado!</div>";
         }

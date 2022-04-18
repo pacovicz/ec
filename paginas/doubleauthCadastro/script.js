@@ -5,12 +5,9 @@ function checaSessao(){
     data: {
     },
     url: "session.php",
-    success: function( retorno, retorno2) {
-        if(retorno == 0){
-          location.href = "/ec/paginas/principal/principal.html";
-        }
-        if(retorno == 1){
-          location.href = "/ec/paginas/login/login.html";
+    success: function( retorno ) {
+        if(retorno != 0){
+        location.href = "/ec/";
         }
     }
 });
@@ -33,9 +30,9 @@ function enviarEmail(){
     },
     url: "enviaEmail.php",
     success: function( retorno ) {
-      if(retorno == 0){
-        document.getElementById("divTeste").innerHTML = "<div class='email'>Email Sent</div>";
-      }
+        if(retorno == 0){
+          document.getElementById("divTeste").innerHTML = "<div class='email'>Email Sent</div>";
+        }
       } 
   });
 }
@@ -57,17 +54,11 @@ function sendToServer(codigo){
         url: "auth.php",
         success: function( retorno ){
           if(retorno == 0){
-            location.href = "/ec/paginas/principal/principal.html";
-          }  else if (retorno == 1){
+            location.href = "/ec/paginas/login/login.html";
+          } else if (retorno == 1){
             document.getElementById("divTeste").innerHTML = "<div class='teste'>Invalid Code</div>";
           }
         }
     });
 }
-  
-function hashCode(str) {
-    return str.split('').reduce((prevHash, currVal) =>
-      (((prevHash << 5) - prevHash) + currVal.charCodeAt(0))|0, 0);
-    }
-  
-    window.onload = checaSessao();
+window.onload = checaSessao();

@@ -19,6 +19,7 @@
     if(mysqli_connect_errno()){
         echo "conexão com a database falhou!: ". mysqli_error();
     }
+    session_start();
     $username = $_POST["username"];
     $cpf = $_POST["cpf"];
     $email = $_POST["email"];
@@ -30,10 +31,13 @@
     $cpf = mysqli_real_escape_string($con, $_POST["cpf"]);
     $email = mysqli_real_escape_string($con, $_POST["email"]);
     $senhaHash = mysqli_real_escape_string($con, $_POST["senhaHash"]);
+    $_SESSION['cad_username'] = $username;
+    $_SESSION['cad_cpf'] = $cpf;
+    $_SESSION['cad_email'] = $email;
+    $_SESSION['cad_senhaHash'] = $senhaHash;
+    $_SESSION['cad_autenticado'] = "false";
 
     if(validarEmail() == 0){
-        $insert_intoDB = "INSERT INTO cadastro (username, cpf, email, senhaHash) VALUES ('$username','$cpf','$email','$senhaHash')";
-        mysqli_query($con, $insert_intoDB);
         echo json_encode("0");
     } else {
         echo json_encode("1");

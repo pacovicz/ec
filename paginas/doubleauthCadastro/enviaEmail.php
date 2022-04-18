@@ -5,7 +5,7 @@
     require 'PHPMailer-master/src/PHPMailer.php';
     require 'PHPMailer-master/src/SMTP.php';
     session_start();
-    $emailDestinatario = $_SESSION['email'];
+    $emailDestinatario = $_SESSION['cad_email'];
     $numeroDeAutenticacao = rand(10000, 90000);
     $_SESSION['codigoVerificacao'] = $numeroDeAutenticacao;
 
@@ -20,7 +20,6 @@
 	$mail->SMTPSecure = 'ssl'; 
     $mail->Host = 'smtp.gmail.com'; 
 	$mail->Port = 465;
-    $emailDestinatario = $_SESSION['email'];
     // Detalhes do envio de E-mail
 	$mail->Username = 'ec.cybersec@gmail.com'; 
 	$mail->Password = '@Temp123';

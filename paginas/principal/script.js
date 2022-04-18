@@ -43,7 +43,6 @@ function checaSessao(){
           if(retorno == 0){
           document.location.reload();
           }
-          
       }
   });  
   }
