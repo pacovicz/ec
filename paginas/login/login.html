@@ -8,17 +8,21 @@
     <script src="../login/script.js" async defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <title>Login</title>
+    <script
+    src="https://kit.fontawesome.com/1533614542.js"
+    crossorigin="anonymous"
+  ></script>
   </head>
   <body>
     <main class="container">
       <h2>Login</h2>
-      <form onsubmit="sigin(event)">
+      <form onsubmit="signin(event)">
         <div class="input-field">
           <input
             type="email"
             name="email"
             id="email"
-            placeholder="E-mail"
+            placeholder="&#xf0e0 E-mail" style="font-family:Arial, FontAwesome"
             required
           />
           <div class="underline"></div>
@@ -28,13 +32,14 @@
             type="password"
             name="password"
             id="password"
-            placeholder="Password"
+            placeholder="&#xf023 Password" style="font-family:Arial, FontAwesome"
             required
           />
           <div class="underline"></div>
         </div>
         <div id="teste"></div>
-        <button type="button" onclick="signin()">Continue</button>
+
+        <button type="submit">Continue <i class="fa-solid fa-paper-plane"></i></button>
         <div class="text-center">
           <a href="../forgot/forgot.html">Forgot your password?</a>
           <a href="/ec/">Register</a>
