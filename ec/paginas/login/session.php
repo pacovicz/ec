@@ -2,11 +2,11 @@
     session_start();
     function checaSessao(){
         if(empty($_SESSION['sessao_valida']) == true){
-            return 1;
+            return 0;
         } else if($_SESSION['sessao_valida'] == "false"){
             return 2;
         } else{
-            return 0;
+            return 1;
         }
     }
 

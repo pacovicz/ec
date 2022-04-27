@@ -7,7 +7,7 @@ function checaSessao(){
     url: "session.php",
     success: function( retorno ) {
         console.log(retorno);
-        if(retorno == 0){
+        if(retorno == 1){
           location.href = "/ec/paginas/principal/principal.html";
         } else if (retorno == 2){
           alert("sessão inválida!");
