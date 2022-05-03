@@ -16,31 +16,32 @@
   <body>
     <main class="container">
       <h2>Login</h2>
+        <form onsubmit="signup(event)"> 
+          <div class="input-field">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="&#xf0e0 E-mail" style="font-family:Arial, FontAwesome"
+              required
+            />
+            <div class="underline"></div>
+          </div>
 
-        <div class="input-field">
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="&#xf0e0 E-mail" style="font-family:Arial, FontAwesome"
-            required
-          />
-          <div class="underline"></div>
+          <div class="input-field">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="&#xf023 Password" style="font-family:Arial, FontAwesome"
+              required
+            />
+            <div class="underline"></div>
+          </div>
         </div>
-        <div class="input-field">
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="&#xf023 Password" style="font-family:Arial, FontAwesome"
-            required
-          />
-          <div class="underline"></div>
-        </div>
-        <div id="teste"></div>
-
-        <button onclick="signin()">Continue <i class="fa-solid fa-paper-plane"></i></button>
+        <button type="button" onclick="signin()">Continue <i class="fa-solid fa-paper-plane"></i></button>
         <div class="text-center">
+        </form>
           <a href="../forgot/forgot.html">Forgot your password?</a>
           <a href="/ec/">Register</a>
         </div>
