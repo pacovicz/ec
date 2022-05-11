@@ -20,6 +20,7 @@
 	$mail->SMTPSecure = 'ssl'; 
     $mail->Host = 'smtp.gmail.com'; 
 	$mail->Port = 465;
+    $emailDestinatario = $_SESSION['cad_email'];
     // Detalhes do envio de E-mail
 	$mail->Username = 'ec.cybersec@gmail.com'; 
 	$mail->Password = '@Temp123';
@@ -28,5 +29,5 @@
 	$mail->Subject = "Verification code from EC";
 	$mail->msgHTML("Your code is: ". $numeroDeAutenticacao);
     $mail->send();
-    echo json_encode("0");
+    echo json_encode($_SESSION['cad_email']);
 ?>    

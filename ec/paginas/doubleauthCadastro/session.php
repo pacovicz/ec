@@ -7,7 +7,6 @@
             return 0;
         }
     }
-
     if(checaSessao() == 0){ 
         echo json_encode("0");
     } else if(checaSessao() == 1){
