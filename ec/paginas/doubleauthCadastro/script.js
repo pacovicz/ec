@@ -18,7 +18,7 @@ $.ajax({
   },
   url: "recebeEmail.php",
   success: function( retorno) {
-      document.getElementById("msg").innerHTML = "We've sent a email to " + retorno + " to verify if you are yourself";
+    console.log("deu boa.")
   }
 });
 }
@@ -30,9 +30,8 @@ function enviarEmail(){
     },
     url: "enviaEmail.php",
     success: function( retorno ) {
-        if(retorno == 0){
-          document.getElementById("divTeste").innerHTML = "<div class='email'>Email Sent</div>";
-        }
+          document.getElementById("divTeste").style.backgroundColor = "white";
+          document.getElementById("divTeste").innerHTML = "<div class='teste'>Email sent to " + retorno + "</div>";
       } 
   });
 }
@@ -61,4 +60,4 @@ function sendToServer(codigo){
         }
     });
 }
-window.onload = checaSessao();
+window.onload = checaSessao(), enviarEmail();

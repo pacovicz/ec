@@ -140,11 +140,9 @@ a {
   }
   
 .teste{
-    background-color: lightsalmon;
     padding: 0.5rem;
     border-radius: 5px;
     font-size: 0.8rem;
-    text-align: center;
 }
 
 .email{

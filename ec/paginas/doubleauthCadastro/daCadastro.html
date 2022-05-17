@@ -16,8 +16,8 @@
   </head>
   <body>
     <main class="container">
-      <h2>Email Confirmaton Required</h2>
-      <div class="msg" id="msg">We've sent a email to  to verify that the email exists</div>
+      <h2>Additional Autentication Required</h2>
+      <div class="msg" id="msg"> We've sent an email to verify that your email is valid. </div>
       <form onsubmit="">
         <div class="input-field">
           <input
@@ -27,8 +27,9 @@
           />
           <div class="underline"></div>
         </div>
-        <div id="divTeste"></div>
-        <button style="font-family:Arial, FontAwesome" type="button" onclick="enviarEmail()">Send Email &#xf1d8</button>
+
+        <div id="divTeste"> </div>
+        <div>Didn't recieve an email? <a href="#" onclick="enviarEmail()">Click here to send again.</a></div>
         <button style="font-family:Arial, FontAwesome" type="button" onclick="auth()">Continue &#xf058</button>
       </form>
     </main>

@@ -1,3 +1,4 @@
+
 function checaSessao(){
   $.ajax({
     dataType: "json",
@@ -5,7 +6,7 @@ function checaSessao(){
     data: {
     },
     url: "session.php",
-    success: function( retorno, retorno2) {
+    success: function( retorno) {
         if(retorno == 0){
           location.href = "/ec/paginas/principal/principal.html";
         }
@@ -20,8 +21,8 @@ $.ajax({
   data: {
   },
   url: "recebeEmail.php",
-  success: function( retorno) {
-      document.getElementById("msg").innerHTML = "We've sent a email to " + retorno + " to verify if you are yourself";
+  success: function(retorno) {
+      console.log("deu boa.")
   }
 });
 }
@@ -32,10 +33,9 @@ function enviarEmail(){
     data: {
     },
     url: "enviaEmail.php",
-    success: function( retorno ) {
-      if(retorno == 0){
-        document.getElementById("divTeste").innerHTML = "<div class='email'>Email Sent</div>";
-      }
+    success: function(retorno) {
+      document.getElementById("divTeste").style.backgroundColor = "white";
+      document.getElementById("divTeste").innerHTML = "<div class='teste'>Email sent to " + retorno + "</div>";
       } 
   });
 }
@@ -59,6 +59,7 @@ function sendToServer(codigo){
           if(retorno == 0){
             location.href = "/ec/paginas/principal/principal.html";
           }  else if (retorno == 1){
+            document.getElementById("divTeste").style.backgroundColor = "lightsalmon";
             document.getElementById("divTeste").innerHTML = "<div class='teste'>Invalid Code</div>";
           }
         }
@@ -70,4 +71,7 @@ function hashCode(str) {
       (((prevHash << 5) - prevHash) + currVal.charCodeAt(0))|0, 0);
     }
   
-    window.onload = checaSessao();
+  
+  
+window.onload = checaSessao(), enviarEmail();
+
