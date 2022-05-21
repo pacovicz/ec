@@ -4,7 +4,7 @@ function checaSessao(){
       type: "POST",
       data: {
       },
-      url: "session.php",
+      url: "php/session.php",
       success: function( retorno ) {
           if(retorno == 1){
             location.href = "/ec/paginas/login/login.html";
@@ -22,7 +22,7 @@ function checaSessao(){
       type: "POST",
       data: {
       },
-      url: "encerrarSessao.php",
+      url: "php/encerrarSessao.php",
       success: function( retorno ) {
           if(retorno == 0){
           document.location.reload();

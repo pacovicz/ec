@@ -23,7 +23,7 @@
         } while($linha = mysqli_fetch_assoc($dados));
         return 2;
     }
-    require("dbconnect.php");
+    include("../../../php/dbconnect.php");
     if(mysqli_connect_errno()){
         echo "conexão com a database falhou!: ". mysqli_error();
     }
@@ -31,10 +31,10 @@
     $senhaHash = $_POST["senhaHash"];
 
     if(login() == 0){
-        echo json_encode("0");
+        echo json_encode("Success");
     } else if (login() == 1) {
-        echo json_encode("1");
+        echo json_encode("Incorrect password or Email");
     } else {
-        echo json_encode("2");
+        echo json_encode("Email doesnt exist in database");
     }
 ?>

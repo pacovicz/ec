@@ -6,11 +6,11 @@ function checaSessao(){
       },
       url: "session.php",
       success: function( retorno ) {
-          if(retorno == 1){
+          if(retorno == "Session not valid, please log-in"){
             location.href = "/ec/paginas/login/login.html";
-          } else if (retorno == 2){
-            alert("sessão inválida.")
-            location.href = "/ec/paginas/login/login.html";
+          } else if (retorno == "Not autenticated, please autenticate"){
+            alert("Not autenticated, please autenticate")
+            location.href = "/ec/paginas/doubleauth/login.html";
           }
           
       }

@@ -7,6 +7,7 @@ function checaSessao(){
     url: "session.php",
     success: function( retorno ) {
         if(retorno != "Cadastro autenticado"){
+        alert("Non-valid session, please log-in")
         location.href = "/ec/";
         }
     }

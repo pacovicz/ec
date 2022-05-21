@@ -11,7 +11,7 @@
         }
     }
     if(checaCodigo() == 0){
-        echo json_encode("0");
+        echo json_encode("Valid autentication");
     } else {
-        echo json_encode("1");
+        echo json_encode("Invalid code");
     }

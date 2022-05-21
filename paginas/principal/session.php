@@ -11,10 +11,10 @@
     }
 
     if(checaSessao() == 0){ 
-        echo json_encode("0");
+        echo json_encode("Success");
     } else if(checaSessao() == 1){
-        echo json_encode("1");
+        echo json_encode("Session not valid, please log-in");
     } else if(checaSessao() == 2){
-        echo json_encode("2");
+        echo json_encode("Not autenticated, please autenticate");
     }
     ?>

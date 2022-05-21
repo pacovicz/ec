@@ -7,10 +7,11 @@ function checaSessao(){
     },
     url: "session.php",
     success: function( retorno) {
-        if(retorno == 0){
+        if(retorno == "Already autenticated"){
           location.href = "/ec/paginas/principal/principal.html";
         }
-        if(retorno == 1){
+        if(retorno == "Not logged in"){
+          alert("Invalid Session, please log-in")
           location.href = "/ec/paginas/login/login.html";
         }
     }
@@ -56,22 +57,15 @@ function sendToServer(codigo){
         },
         url: "auth.php",
         success: function( retorno ){
-          if(retorno == 0){
+          if(retorno == "Valid autentication"){
             location.href = "/ec/paginas/principal/principal.html";
-          }  else if (retorno == 1){
-            document.getElementById("divTeste").style.backgroundColor = "lightsalmon";
+          }  else if (retorno == "Invalid code"){
             document.getElementById("divTeste").innerHTML = "<div class='teste'>Invalid Code</div>";
           }
         }
     });
 }
   
-function hashCode(str) {
-    return str.split('').reduce((prevHash, currVal) =>
-      (((prevHash << 5) - prevHash) + currVal.charCodeAt(0))|0, 0);
-    }
-  
-  
-  
+
 window.onload = checaSessao(), enviarEmail();
 
