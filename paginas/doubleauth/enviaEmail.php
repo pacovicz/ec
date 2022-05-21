@@ -29,5 +29,5 @@
 	$mail->Subject = "Verification code from EC";
 	$mail->msgHTML("Your code is: ". $numeroDeAutenticacao);
     $mail->send();
-    echo json_encode("0");
+    echo json_encode($_SESSION['email']);
 ?>    
