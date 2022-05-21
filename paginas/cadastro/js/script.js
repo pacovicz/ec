@@ -9,7 +9,7 @@ function checaSessao(){
     success: function( retorno ) {
         if(retorno == "Already logged in"){
           alert("You are already logged in")
-          location.href = "/ec/paginas/principal/principal.html"
+          location.href = "/ec/paginas/principal/index.html"
         }
     }
 });  
@@ -42,7 +42,7 @@ function sendToServer(username, cpf, email, senhaHash){
       url: "php/index.php",
       success: function( retorno ) {
         if(retorno == "Success"){
-          location.href = "paginas/doubleauthCadastro/daCadastro.html"
+          location.href = "/ec/paginas/doubleauthCadastro/index.html"
         } else if (retorno == "Email already taken"){
           document.getElementById("divAlerta").innerHTML = "<div class='alerta'>Email already taken</div>";
         }

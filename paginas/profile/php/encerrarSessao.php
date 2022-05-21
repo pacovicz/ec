@@ -1,5 +1,5 @@
 <?php
     session_start();
     session_destroy();
-    echo json_encode("0");
+    echo json_encode("Logged out");
     ?>

@@ -4,13 +4,13 @@ function checaSessao(){
       type: "POST",
       data: {
       },
-      url: "session.php",
+      url: "php/session.php",
       success: function( retorno ) {
           if(retorno == "Session not valid, please log-in"){
-            location.href = "/ec/paginas/login/login.html";
+            location.href = "/ec/paginas/login/index.html";
           } else if (retorno == "Not autenticated, please autenticate"){
             alert("Not autenticated, please autenticate")
-            location.href = "/ec/paginas/doubleauth/login.html";
+            location.href = "/ec/paginas/doubleauth/index.html";
           }
           
       }
@@ -24,7 +24,7 @@ function checaSessao(){
       type: "POST",
       data: {
       },
-      url: "php.php",
+      url: "php/php.php",
       success: function( retorno ) {
         document.getElementById("username").innerHTML = retorno;
       }
@@ -38,7 +38,7 @@ function checaSessao(){
       type: "POST",
       data: {
       },
-      url: "encerrarSessao.php",
+      url: "php/encerrarSessao.php",
       success: function( retorno ) {
           if(retorno == 0){
           document.location.reload();

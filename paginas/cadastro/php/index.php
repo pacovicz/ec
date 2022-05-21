@@ -15,7 +15,7 @@
         } else return "Success";
     }
         
-    require("dbconnect.php");
+    include("../../../dbconnect/dbconnect.php");
     if(mysqli_connect_errno()){
         echo "conexão com a database falhou!: ". mysqli_error();
     }

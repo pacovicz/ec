@@ -23,7 +23,7 @@
         } while($linha = mysqli_fetch_assoc($dados));
         return 2;
     }
-    include("../../../php/dbconnect.php");
+    include("../../../dbconnect/dbconnect.php");
     if(mysqli_connect_errno()){
         echo "conexão com a database falhou!: ". mysqli_error();
     }
