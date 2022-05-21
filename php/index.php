@@ -8,11 +8,11 @@
         if ($total > 0){
             do {
                 if($linha['email'] == $email){
-                    return 1;
+                    return "Email already taken";
                 }
             } while($linha = mysqli_fetch_assoc($dados));
-            return 0;
-        } else return 0;
+            return "Success";
+        } else return "Success";
     }
         
     require("dbconnect.php");
@@ -37,10 +37,10 @@
     $_SESSION['cad_senhaHash'] = $senhaHash;
     $_SESSION['cad_autenticado'] = "false";
 
-    if(validarEmail() == 0){
-        echo json_encode("0");
+    if(validarEmail() == "Success"){
+        echo json_encode("Success");
     } else {
-        echo json_encode("1");
+        echo json_encode("Email already taken");
     }
 
 ?>

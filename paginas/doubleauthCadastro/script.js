@@ -6,7 +6,7 @@ function checaSessao(){
     },
     url: "session.php",
     success: function( retorno ) {
-        if(retorno != 0){
+        if(retorno != "Cadastro autenticado"){
         location.href = "/ec/";
         }
     }
@@ -30,7 +30,7 @@ function enviarEmail(){
     },
     url: "enviaEmail.php",
     success: function( retorno ) {
-        if(retorno == 0){
+        if(retorno == "Email sent"){
           document.getElementById("divTeste").innerHTML = "<div class='email'>Email Sent</div>";
         }
       } 
@@ -41,7 +41,6 @@ function auth() {
     var codigo = $("#codigo").val();
 
     sendToServer(codigo);
-    //continuar
   }
 function sendToServer(codigo){
   
@@ -53,9 +52,9 @@ function sendToServer(codigo){
         },
         url: "auth.php",
         success: function( retorno ){
-          if(retorno == 0){
+          if(retorno == "Success"){
             location.href = "/ec/paginas/login/login.html";
-          } else if (retorno == 1){
+          } else if (retorno == "Invalid Code"){
             document.getElementById("divTeste").innerHTML = "<div class='teste'>Invalid Code</div>";
           }
         }

@@ -1,6 +1,7 @@
 <?php
+    
     session_start();
-    require("dbconnect.php");
+    require("/ec/ec/dbconnect.php");
     if(mysqli_connect_errno()){
         echo "conexão com a database falhou!: ". mysqli_error();
     }
@@ -13,15 +14,15 @@
     function checaCodigo(){
         global $codigoRecebido;
         if($codigoRecebido == $_SESSION['codigoVerificacao']){
-            return 0;
+            return "Success";
         } else {
-            return 1;
+            return "Invalid Code";
         }
     }
     if(checaCodigo() == 0){
         $insert_intoDB = "INSERT INTO cadastro (username, cpf, email, senhaHash) VALUES ('$username','$cpf','$email','$senhaHash')";
         mysqli_query($con, $insert_intoDB);
-        echo json_encode("0");
+        echo json_encode("Success");
     } else {
-        echo json_encode("1");
+        echo json_encode("Invalid Code");
     }

@@ -9,8 +9,8 @@
     }
 
     if(checaSessao() == 0){ 
-        echo json_encode("0");
+        echo json_encode("Cadastro autenticado");
     } else if(checaSessao() == 1){
-        echo json_encode("1");
+        echo json_encode("Cadastro não autenticado");
     }
     ?>
