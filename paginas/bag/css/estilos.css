@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+                 "Arial", sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, #ffe53b, #ff2525);   
+    height: 100vh;
+}
+
+.boxContainerLoja {
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;
+}
+
+.boxProduto {
+    background-color: white;
+    margin: 50px;
+    width: 70%;
+    min-width: 680px;
+    min-height: 565px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+}
+
+.boxCompra {
+    display: flex;
+    background-color: white;
+    min-width: 360px;
+    max-height: 450px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    margin: 50px;
+}
+
+.divBtn {
+    display: flex;
+    align-items: flex-end;
+}
+
+.btnBuy {
+    margin-top: 10px;
+    background: #ff532a;
+    border-radius: 20px;
+    padding: 12px 18px;
+}
+
+.btnBuy:hover {
+    background: rgb(228, 97, 64);
+    cursor: pointer;
+}

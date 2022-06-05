@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/estilos.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="js/script.js" async defer></script>
+    
+    <script
+      src="https://kit.fontawesome.com/1533614542.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>EC</title>
+  </head>
+  <body>
+    <main class="container">
+      <h2>Sign up</h2>
+      <form onsubmit="signup(event)">
+        <div class="input-field">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="&#xf007 Username" style="font-family:Arial, FontAwesome"
+            required
+          />
+          <div class="underline"></div>
+        </div>
+        <div class="input-field">
+          <input 
+            type="text" 
+            name="cpf" 
+            id="cpf" 
+            placeholder="&#xf2c2 CPF" style="font-family:Arial, FontAwesome" 
+            required 
+          />
+          <div class="underline"></div>
+        </div>
+        <div class="input-field">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="&#xf0e0 E-mail" style="font-family:Arial, FontAwesome"
+            required
+          />
+          <div class="underline"></div>
+        </div>
+        <div class="input-field">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="&#xf023 Password" style="font-family:Arial, FontAwesome"
+            required
+          />
+          <div class="underline"></div>
+        </div>
+        <div id="divAlerta"></div>
+        <button type="submit">Continue <i class="fa-solid fa-paper-plane"></i></button>
+      </form>
+      <div class="text-center">
+        <a href="paginas/login/login.html">Login</a>
+      </div>
+    </main>
+  </body>
+</html>
