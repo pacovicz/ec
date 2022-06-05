@@ -5,10 +5,10 @@ USE dbstore;
 
 CREATE TABLE IF NOT EXISTS cadastro(
 	id INT AUTO_INCREMENT,
-    nome VARCHAR(50),
-	cpf VARCHAR(16),
-    email VARCHAR(255),
-    senhaHash VARCHAR(50),
+    nome VARCHAR(50) NOT NULL,
+	cpf VARCHAR(16) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    senhaHash VARCHAR(50) NOT NULL,
     PRIMARY KEY(id)
 );
 
