@@ -24,12 +24,11 @@ function signin() {
     //continuar
   }
 function sendToServer(email, senhaHash){
-  
     $.ajax({
         dataType: "json",
         type: "POST",
         data: {
-            email: email,
+            email: email,      
             senhaHash: senhaHash
         },
         url: "php/php.php",
