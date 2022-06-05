@@ -1,0 +1,14 @@
+DROP DATABASE IF EXISTS dbstore;
+CREATE DATABASE  IF NOT EXISTS dbstore;
+
+USE dbstore;
+
+CREATE TABLE IF NOT EXISTS cadastro(
+	id INT AUTO_INCREMENT,
+    nome VARCHAR(50),
+	cpf VARCHAR(16),
+    email VARCHAR(255),
+    senhaHash VARCHAR(50),
+    PRIMARY KEY(id)
+);
+
