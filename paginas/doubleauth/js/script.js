@@ -36,10 +36,12 @@ function enviarEmail(){
     data: {
     },
     url: "php/enviaEmail.php",
-    success: function(retorno) {
+    success: function(retornoPHP) {
+      console.log(retornoPHP)
       document.getElementById("divTeste").style.backgroundColor = "white";
-      document.getElementById("divTeste").innerHTML = "<div class='teste'>Email sent to " + retorno + "</div>";
-      } 
+      document.getElementById("divTeste").innerHTML = "<div class='teste'>Email sent to " + retornoPHP['email']+ "</div>";
+      console.log(retornoPHP['codigoVerificacao']);
+    }
   });
 }
 

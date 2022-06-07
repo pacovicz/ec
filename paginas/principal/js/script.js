@@ -1,3 +1,6 @@
+window.onload = checaSessao(), atualizaDados(); 
+
+
 function checaSessao(){
     $.ajax({
       dataType: "json",
@@ -30,7 +33,6 @@ function checaSessao(){
       }
   });  
   }
-  window.onload = atualizaDados();
 
   function encerrarSessao(){
     $.ajax({
