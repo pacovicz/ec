@@ -1,4 +1,4 @@
-window.onload = checaSessao(), atualizaDados(); 
+window.onload = checaSessao(), atualizaDados(), carregarProdutos(); 
 
 
 function checaSessao(){
@@ -47,4 +47,16 @@ function checaSessao(){
           }
       }
   });  
+  }
+
+  function carregarProdutos() {
+    $.ajax({
+      dataType: "json",
+      type: "GET",
+      url: "php/phpProdutos.php",
+      success: function( retorno ) {
+        document.querySelector(".produtos").innerHTML = JSON.stringify(retorno)
+      }
+    });
+
   }
