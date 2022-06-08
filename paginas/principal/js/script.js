@@ -1,3 +1,6 @@
+window.onload = checaSessao(), atualizaDados(), carregarProdutos(); 
+
+
 function checaSessao(){
     $.ajax({
       dataType: "json",
@@ -30,7 +33,6 @@ function checaSessao(){
       }
   });  
   }
-  window.onload = atualizaDados();
 
   function encerrarSessao(){
     $.ajax({
@@ -45,4 +47,16 @@ function checaSessao(){
           }
       }
   });  
+  }
+
+  function carregarProdutos() {
+    $.ajax({
+      dataType: "json",
+      type: "GET",
+      url: "php/phpProdutos.php",
+      success: function( retorno ) {
+        document.querySelector(".produtos").innerHTML = JSON.stringify(retorno)
+      }
+    });
+
   }
