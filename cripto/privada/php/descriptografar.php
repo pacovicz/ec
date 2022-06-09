@@ -1,5 +1,5 @@
 <?php
-	error_reporting(0);
+	// error_reporting(0);
 	$criptografia = $_POST["message"];
 
 	$chave = "1234567887654321";

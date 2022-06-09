@@ -1,3 +1,5 @@
+
+
 function checaSessao() {
   $.ajax({
     dataType: "json",
@@ -25,7 +27,7 @@ function sendToServer(criptografado) {
     dataType: "json",
     type: "POST",
     data: {
-      mensagem: criptografado,
+      message: criptografado,
     },
     url: "php/php.php",
     success: function (retorno) {
@@ -45,13 +47,14 @@ function sendToServer(criptografado) {
 function criptografar() {
   var data = {
     email: $("#email").val(),
-    senha: CryptoJS.SHA256($("#password").val()),
+    senha: hashing($("#password").val()),
   };
+  console.log(data['senha']);
 
-  var mensagem = JSON.stringify(data).toString();
+  var mensagem = JSON.stringify(data);
 
   var chave = CryptoJS.enc.Utf8.parse("1234567887654321");
-  var iv = "1234567890";
+  var iv = "1234567887654321";
 
   var criptografado = CryptoJS.AES.encrypt(mensagem, chave, {
     iv: CryptoJS.enc.Utf8.parse(iv),
@@ -60,4 +63,11 @@ function criptografar() {
   }).toString();
 
   return criptografado;
+}
+
+function hashing(senha){
+  const myString = senha
+  const myBitArray = sjcl.hash.sha256.hash(myString)
+  const myHash = sjcl.codec.hex.fromBits(myBitArray)
+  return myHash;
 }
