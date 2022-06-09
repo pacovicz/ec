@@ -29,6 +29,7 @@
     }
     $email = $_POST["email"];
     $senhaHash = $_POST["senhaHash"];
+
     if(login() == 0){
         echo json_encode("Success");
     } else if (login() == 1) {

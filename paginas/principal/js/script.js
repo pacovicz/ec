@@ -19,7 +19,6 @@ function checaSessao(){
       }
   });  
   }
-  window.onload = checaSessao();
 
   function atualizaDados(){
     $.ajax({
@@ -55,8 +54,17 @@ function checaSessao(){
       type: "GET",
       url: "php/phpProdutos.php",
       success: function( retorno ) {
-        document.querySelector(".produtos").innerHTML = JSON.stringify(retorno)
+        const produtos = retorno;
+        const produtosDiv = document.querySelector(".produtos");
+        for (let i = 0; i < produtos.length; i++) {
+          const produto = produtos[i];
+          produtosDiv.innerHTML +=
+            `<div class='card'> ` +
+            `<img class='imgCard'src=${produto.imagem}>` + 
+            `<span class='nameCard'>${produto.nome}</span>` +
+            `<button class='btnCard' onclick='comprarProduto(${produto.id})'>Add to cart</button>` +
+            `</div>`;
+        }
       }
     });
-
   }

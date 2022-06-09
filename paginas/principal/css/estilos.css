@@ -82,58 +82,44 @@ body {
 }
 
 .container-itens {
-  flex-wrap: wrap;
   background: white;
   width: 100%;
   padding: 1.5rem;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
   border-radius: 22px;
   display: flex;
-  flex-wrap: wrap;
-}
-
-.produto {
-  align-content: center;
-  border-radius: 4px;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  height: 230px;
 }
 
 .produtos {
-  max-width: 180px;
-  border-style: solid;
-  border-color: black;
-  width: 100%;
-  max-height: 300px;
-  border-radius: 4px;
-  margin: 2px;
-}
-
-.itens-setup:hover {
-  border-width: 2px;
-  border-color: #ffb135;
-}
-
-.itens-setup a {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: 15px;
-  font-weight: bolder;
-  margin: 2px;
+  max-width: 100%;
+  gap: 20px;
 }
 
-.btn-setup {
+.card {
+  text-align: center;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  border-color: #343434;
+  border: 3px solid;
+  border-radius: 3px;
+  flex: 5cm;
 }
 
-.itens {
-  border-style: double;
-  border-color: #fcc434;
+.imgCard {
+  max-width: 200px;
+  max-height: 204px;
 }
 
-.btn-buy {
+.nameCard {
+
+}
+
+.btnCard {
   background-color: #ffb135;
   border-radius: 4px;
   padding-left: 18px;
@@ -142,10 +128,11 @@ body {
   padding-bottom: 8px;
   font-size: 15px;
   font-weight: bold;
-  margin-bottom: 2px;
+  margin-top: 7px;
+  border-width: 0px;
 }
 
-.btn-buy:hover{
+.btnCard:hover{
   background-color: #fcc434;
   cursor: pointer;
 }
