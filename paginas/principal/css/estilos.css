@@ -111,8 +111,8 @@ body {
 }
 
 .imgCard {
-  max-width: 200px;
-  max-height: 204px;
+  max-width: 260px;
+  max-height: 172px;
 }
 
 .nameCard {
@@ -128,7 +128,6 @@ body {
   padding-bottom: 8px;
   font-size: 15px;
   font-weight: bold;
-  margin-top: 7px;
   border-width: 0px;
 }
 
