@@ -94,20 +94,6 @@ const carrinho = carrinhoPersistido == null ? []: carrinhoPersistido;
 const reducer = (valorAnterior, valorAtual) => valorAnterior + valorAtual;
 let qtdCarrinho = carrinho.length > 0 ? carrinho.map(x => x.qtd).reduce(reducer) : 0;
 
-const round = (num, places) => {
-	if (!("" + num).includes("e")) {
-		return +(Math.round(num + "e+" + places)  + "e-" + places);
-	} else {
-		let arr = ("" + num).split("e");
-		let sig = ""
-		if (+arr[1] + places > 0) {
-			sig = "+";
-		}
-
-		return +(Math.round(+arr[0] + "e" + sig + (+arr[1] + places)) + "e-" + places);
-	}
-}
-
 
 function adicionarProduto(id, preco) {
   const qtdCarrinhoIcon = document.querySelector('.qtd-carrinho');
@@ -117,7 +103,7 @@ function adicionarProduto(id, preco) {
   const produtoNoCarrinho = carrinho.find(item => item.produto === id);
   if (produtoNoCarrinho) {
     produtoNoCarrinho.qtd++;
-    produtoNoCarrinho.preco += round(preco,1);
+    produtoNoCarrinho.preco += preco;
 
   } else {
     carrinho.push({

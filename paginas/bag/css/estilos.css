@@ -60,11 +60,10 @@ body {
 
 .produtos{
     display: flex;
+    gap: 15px;
     flex-wrap: wrap;
-    justify-content: center;
     align-content: flex-start;
-
-    gap: 15px;    
+    justify-content: space-evenly;
 }
 
 .produto {
@@ -75,7 +74,7 @@ body {
 .card{
     max-width: 320px;
     width: 100%;
-    margin: 2rem auto;
+    margin: 1rem auto;
     padding-top: 4px;
     padding-bottom: 5px;
 
@@ -84,7 +83,7 @@ body {
     box-shadow: 2px 2px 10px rgba(32, 33, 37, 0.1);
     border-radius: 8px;
 
-    min-width: 200px;
+    min-width: 180px;
     max-width: 200px;
 
     display: flex;

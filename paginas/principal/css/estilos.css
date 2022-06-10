@@ -14,10 +14,10 @@ body #qtd {
   border-radius: 50%;
   top: 4px;
   left: 136px;
-  padding-top:4px ;
-  padding-bottom:4px ;
+  padding-top: 5px;
+  padding-bottom: 4px;
   padding-left: 4px;
-  padding-right: 4px;
+  padding-right: 6px;
 }
 
 a #qtd{
@@ -159,15 +159,10 @@ img icons{
 
   max-width: 320px;
   min-width: 200px;
-  width: 100%;
 
   margin: 2rem auto;
   gap: 5px;
   flex: 10;
-
-  transform: translateY(0);
-  transition: transform 0.5s;
-
 }
 
 .card:hover, .card:focus {
