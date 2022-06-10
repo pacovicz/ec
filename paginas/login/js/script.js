@@ -18,16 +18,22 @@ function checaSessao() {
 }
 
 function signin() {
-  mensagem_cripto = criptografar();
-  sendToServer(mensagem_cripto);
+  sendToServer();
   //continuar
 }
-function sendToServer(criptografado) {
+function sendToServer() {
+  var data = {
+    email: $("#email").val(),
+    senha: hashing($("#password").val()),
+  };
+
+  encrypt_data = criptografar_private(JSON.stringify(data))
+
   $.ajax({
     dataType: "json",
     type: "POST",
     data: {
-      message: criptografado,
+      message: encrypt_data,
     },
     url: "php/php.php",
     success: function (retorno) {
@@ -44,26 +50,6 @@ function sendToServer(criptografado) {
   });
 }
 
-function criptografar() {
-  var data = {
-    email: $("#email").val(),
-    senha: hashing($("#password").val()),
-  };
-  console.log(data['senha']);
-
-  var mensagem = JSON.stringify(data);
-
-  var chave = CryptoJS.enc.Utf8.parse("1234567887654321");
-  var iv = "1234567887654321";
-
-  var criptografado = CryptoJS.AES.encrypt(mensagem, chave, {
-    iv: CryptoJS.enc.Utf8.parse(iv),
-    mode: CryptoJS.mode.CBC,
-    padding: CryptoJS.pad.ZeroPadding,
-  }).toString();
-
-  return criptografado;
-}
 
 function hashing(senha){
   const myString = senha

@@ -1,15 +1,4 @@
 <?php
-	// error_reporting(0);
-	$criptografia = $_POST["message"];
-
-
-	$chave = "1234567887654321";
-	$iv = "1234567887654321";
-
-	$mensagem_decryt = openssl_decrypt($criptografia, 'aes-128-cbc', $chave,  OPENSSL_ZERO_PADDING, $iv);
-    $mensagem_decryt = trim($mensagem_decryt);
-    $mensagem = json_decode($mensagem_decryt, true);
-  
     function login(){
         global $email, $con, $senhaHash;
         $query = sprintf("SELECT username, email, cpf, senhaHash FROM cadastro");
@@ -33,13 +22,20 @@
             }
         } while($linha = mysqli_fetch_assoc($dados));
         return 2;
-    }
+}
+	// error_reporting(0);
+	include('../../../cripto/cripto/criptolib.php');
+    $mensagem = descriptografar($_POST['message']);
+    
+    $mensagem = trim($mensagem);
+    $mensagem = json_decode($mensagem, true);
+
     include("../../../dbconnect/dbconnect.php");
     if(mysqli_connect_errno()){
         echo "conexão com a database falhou!: ". mysqli_error();
     }
-    $email = $mensagem["email"];
-    $senhaHash = $mensagem["senha"];
+    $email = $mensagem['email'];
+    $senhaHash = $mensagem['senha'];
     if(login() == 0){
         echo json_encode("Success");
     } else if (login() == 1) {
