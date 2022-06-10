@@ -81,6 +81,27 @@ body {
   cursor: pointer;
 }
 
+#carrinho {
+  position: relative;
+}
+.escondido {
+  display: none;
+}
+
+.qtd-carrinho escondido {
+  position: absolute;
+  left: 10px;
+  bottom: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f7;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
+
 .container-itens {
   background: white;
   width: 100%;
