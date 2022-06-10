@@ -48,7 +48,7 @@ function atualizaDados() {
           }
       }
   });  
-  }
+}
 
 function carregarProdutos() {
   $.ajax({
@@ -57,32 +57,44 @@ function carregarProdutos() {
     url: "php/phpProdutos.php",
     success: function (retorno) {
       const produtos = retorno;
-      const produtosDiv = document.querySelector(".produtos");
+      const produtosDiv = document.querySelector(".produtos");  
       for (let i = 0; i < produtos.length; i++) {
         const produto = produtos[i];
         produtosDiv.innerHTML +=
           `<div class='card'> ` +
           `<img class='imgCard'src=${produto.imagem}>` +
           `<span class='nameCard'>${produto.nome}</span>` +
-          `<button class='btnCard' onclick='comprarProduto(${produto.id})'>Add to cart</button>` +
+          `<button class='btnCard' onclick='adicionarProduto(${produto.id})'>Add to cart</button>` +
           `</div>`;
       }
     }
   });
 }
 
+const ELEMENTO_CARREGANDO = '';
+const listaProdutos = document.querySelector('.produtos');
+
+fetch('php/phpProdutos.php', {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  }
+})
+.then(res => {
+  console.log(res)
+  return res.json()
+})
+.then(produtos => {
+  listaProdutos.innerHTML = '';
+});
+
 const carrinhoPersistido = JSON.parse(localStorage.getItem('carrinho'));
 const carrinho = carrinhoPersistido == null ? []: carrinhoPersistido;
-
 const reducer = (valorAnterior, valorAtual) => valorAnterior + valorAtual;
-
-
 let qtdCarrinho = carrinho.length > 0 ? carrinho.map(x => x.qtd).reduce(reducer) : 0;
 
-function comprarProduto(id) {
-
+function adicionarProduto(id) {
   const qtdCarrinhoIcon = document.querySelector('.qtd-carrinho');
-
   qtdCarrinhoIcon.classList.remove('escondido');
   qtdCarrinho++;
   qtdCarrinhoIcon.textContent = qtdCarrinho;
@@ -90,8 +102,7 @@ function comprarProduto(id) {
   const produtoNoCarrinho = carrinho.find(item => item.produto === id);
   if (produtoNoCarrinho) {
     produtoNoCarrinho.qtd++;
-  }
-  else {
+  } else {
     carrinho.push({
       produto: id,
       qtd: 1
@@ -102,7 +113,6 @@ function comprarProduto(id) {
 }
 
 const qtdCarrinhoIcon = document.querySelector('.qtd-carrinho');
-
 qtdCarrinhoIcon.classList.remove('escondido');
 qtdCarrinhoIcon.textContent = qtdCarrinho;
 

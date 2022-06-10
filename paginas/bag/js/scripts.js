@@ -32,17 +32,6 @@ function retirarDoCarrinho(id, produto) {
 }
 
 function carregarPaginaCarrinho() {
-  const listaProdutos = document.querySelector('.produtos');
-  listaProdutos.innerHTML = ELEMENTO_CARREGANDO;
-
-  fetch('../../php/phpProduto.php', {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    }
-  })
-    .then(res => res.json())
-    .then(produtos => {
       const listaProdutos = document.querySelector('.produtos');
       const botaoFinalizar = document.querySelector('button');
 
@@ -55,22 +44,18 @@ function carregarPaginaCarrinho() {
       botaoFinalizar.disabled = false;
       listaProdutos.innerHTML = '';
       for (let i = 0; i < carrinho.length; i++) {
-        const itemCarrinho = carrinho[i];
+        const itemCarrinho = carrinho[i]; 
         const produto = produtos.find(p => p.id == itemCarrinho.produto);
 
         listaProdutos.innerHTML += 
         `<div class='produto'>` +
         `<img src='${produto.imagem}'>` +
-        <span>${produto.nome}</span>
-        <div class="acoes">
-              <button onclick="adicionarNoCarrinho(${itemCarrinho.produto}, this)"><i class="fas fa-plus"></i></button>
-              <b>${itemCarrinho.qtd}</b>
-              <button onclick="retirarDoCarrinho(${itemCarrinho.produto}, this)"><i class="fas fa-minus"></i></button>
-            </div>
-        </div>
-        `;
+        `<span>${produto.nome}</span> ` + 
+        `<div class='acoes'> ` + 
+              `<button onclick='adicionarNoCarrinho(${itemCarrinho.produto}, this)'><i class='fas fa-plus"></i></button>`+ 
+              `<b>${itemCarrinho.qtd}</b> `+ 
+              `<button onclick='retirarDoCarrinho(${itemCarrinho.produto}, this)'><i class='fas fa-minus'></i></button>` + 
+            `</div>`+
+        `</div> `;
       }
-    });
-}
-
-carregarPaginaCarrinho();
+};
