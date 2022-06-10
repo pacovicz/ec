@@ -64,7 +64,8 @@ function carregarProdutos() {
           `<div class='card'> ` +
           `<img class='imgCard'src=${produto.imagem}>` +
           `<span class='nameCard'>${produto.nome}</span>` +
-          `<button class='btnCard' onclick='adicionarProduto(${produto.id})'>Add to cart</button>` +
+          `<span class='precoCard'><a id='coin'>US$</a> ${produto.preco}</span>` +
+          `<button class='btnCard' onclick='adicionarProduto(${produto.id}, ${produto.preco})'>Add to cart</button>` +
           `</div>`;
       }
     }
@@ -93,22 +94,38 @@ const carrinho = carrinhoPersistido == null ? []: carrinhoPersistido;
 const reducer = (valorAnterior, valorAtual) => valorAnterior + valorAtual;
 let qtdCarrinho = carrinho.length > 0 ? carrinho.map(x => x.qtd).reduce(reducer) : 0;
 
-function adicionarProduto(id) {
+const round = (num, places) => {
+	if (!("" + num).includes("e")) {
+		return +(Math.round(num + "e+" + places)  + "e-" + places);
+	} else {
+		let arr = ("" + num).split("e");
+		let sig = ""
+		if (+arr[1] + places > 0) {
+			sig = "+";
+		}
+
+		return +(Math.round(+arr[0] + "e" + sig + (+arr[1] + places)) + "e-" + places);
+	}
+}
+
+
+function adicionarProduto(id, preco) {
   const qtdCarrinhoIcon = document.querySelector('.qtd-carrinho');
   qtdCarrinhoIcon.classList.remove('escondido');
   qtdCarrinho++;
   qtdCarrinhoIcon.textContent = qtdCarrinho;
-
   const produtoNoCarrinho = carrinho.find(item => item.produto === id);
   if (produtoNoCarrinho) {
     produtoNoCarrinho.qtd++;
+    produtoNoCarrinho.preco += round(preco,1);
+
   } else {
     carrinho.push({
       produto: id,
-      qtd: 1
+      qtd: 1,
+      preco: preco,
     });
   }
-
   localStorage.setItem('carrinho', JSON.stringify(carrinho));
 }
 
