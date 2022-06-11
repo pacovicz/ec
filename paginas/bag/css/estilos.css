@@ -1,10 +1,7 @@
-* {
-    font-weight: bold;
+body {
     font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
                  "Arial", sans-serif;
-}
 
-body {
     margin: 0;
     padding: 0;
     border: 0;
@@ -13,9 +10,12 @@ body {
     height: 100vh;
 }
 
+a {
+    text-decoration: none;
+}
+
 .countA {
     position: static;
-    
     font-size: 20px;
 }
 
@@ -28,7 +28,7 @@ body {
 
     padding-left: 8px;
     padding-right: 8px;
-    padding-top: 5px;
+    padding-top: 3px;
     padding-bottom: 5px;
     border-radius: 50%;
     border-width: 0;
@@ -37,8 +37,14 @@ body {
 #btnMais:hover{
     background-color: rgb(5, 99, 5);
     cursor: pointer;
+    transition: .5s;
 }
 
+.boxContainerLoja{
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
 #btnMenos {
     position: static;
 
@@ -47,7 +53,7 @@ body {
     background-color: #ff2525;
     padding-left: 8px;
     padding-right: 8px;
-    padding-top: 5px;
+    padding-top: 3px;
     padding-bottom: 5px;
     border-radius: 50%;
     border-width: 0;
@@ -55,10 +61,12 @@ body {
 
 #btnMenos:hover{
     background-color: #c23535;
+    transition: .5s;
     cursor: pointer;
 }
 
 .produtos{
+    margin: 20px;
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
@@ -89,6 +97,9 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    font-weight: bold;
+    color:black;
 }
 
 .imgCard{
@@ -96,49 +107,185 @@ body {
     max-height: 112px;
 }
 
-
-.boxContainerLoja {
-    display: flex;
-    justify-content: space-around;
-    height: 100vh;
-}
-
 .boxProduto {
     display: flex;
+    position: relative;
     flex-wrap: wrap;
     background-color: white;
     margin: 50px;
     width: 70%;
     min-width: 680px;
     min-height: 565px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+
     border-radius: 25px;
+}
+
+.infos {
+    width: 100%;
+    height: 300px;
+    background-color: white;
+    border-radius: 0 0 22px 22px;
 }
 
 .boxCompra {
     display: flex;
     flex-wrap: wrap;
     background-color: white;
-    min-width: 360px;
-    max-height: 450px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 460px;
+    max-height: 452px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
     border-radius: 25px;
     margin: 50px;
 }
 
-.divBtn {
+.infoEntrega{
     display: flex;
-    align-items: flex-end;
 }
 
-.btnBuy {
-    margin-top: 10px;
-    background: #ff532a;
-    border-radius: 20px;
-    padding: 12px 18px;
+.arriveDay {
+    background-color: #ffb135;
+    width: 100%;
+    height: 120px;
+    border-radius: 22px 22px 0px 0px;
+    padding: 16px;
+
 }
 
-.btnBuy:hover {
-    background: rgb(228, 97, 64);
+#h3Entrega {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.divSvgId {
+    display: flex;
+    align-items: center;
+}
+
+
+#id{
+    margin-top: 15px;
+    margin-left: 18px;
+    text-decoration: underline;
+    color: black;
+    font-weight: bolder;
+}
+
+#id:hover{
     cursor: pointer;
+    text-decoration: none;
+    color:#06c;
+    transition: 0.2s;
+}
+.infos {
+    display: flex;
+    justify-content: center;
+}
+
+.controle-valores{
+    padding: 20px;
+    width: 100%;
+}
+
+.subtotal-configura{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#subtotal-valor{
+    font-size: 15px;
+    color: #46474a;
+}
+#text-subtotal{
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.taxes-configura{
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#taxes-taxes {
+    font-size: 18px;
+    font-weight: bolder;
+}
+#text-taxes{
+    font-size: 15px;
+    color: #46474a;
+}
+
+.barra {
+    display: flex;
+    justify-content: center;
+}
+
+.barrinha {
+    width: 100%;
+    max-width: 420px;
+    min-width: 350px;
+    height: 1px;
+    background: #46474a;
+}
+
+#barrinha1{
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+#barrinha2 {
+    margin-top: 20px;
+}
+
+.estimated-total {
+    margin-top: 10px;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#text-estimated-total {
+    font-size: 20px;
+    color: #46474a;
+}
+
+#est-total-valor{
+    font-size: 22px;
+    color: black;
+    font-weight: bold; 
+}
+
+.btn-checkout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffc83b;
+    border-radius: 20px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 30px;
+    border-width: 0px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+.btn-checkout:hover{
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+    background-color: #e95920;
+    cursor: pointer;
+}
+
+@media (max-width: 600px)  {
+    
 }

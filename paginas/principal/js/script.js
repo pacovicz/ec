@@ -109,7 +109,7 @@ function adicionarProduto(id, preco) {
     carrinho.push({
       produto: id,
       qtd: 1,
-      preco: preco,
+      valor: preco,
     });
   }
   localStorage.setItem('carrinho', JSON.stringify(carrinho));
