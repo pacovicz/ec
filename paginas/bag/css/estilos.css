@@ -110,9 +110,10 @@ a {
 .boxProduto {
     display: flex;
     position: relative;
-    flex-wrap: wrap;
     background-color: white;
-    margin: 50px;
+    margin-left: 25px;
+    margin-top: 50px;
+    margin-right: 12px;
     width: 70%;
     min-width: 680px;
     min-height: 565px;
@@ -136,7 +137,9 @@ a {
     max-height: 452px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
     border-radius: 25px;
-    margin: 50px;
+    margin-top: 50px;
+    margin-right: 25px;
+    margin-left:42px;
 }
 
 .infoEntrega{
@@ -287,5 +290,26 @@ a {
 }
 
 @media (max-width: 600px)  {
-    
+
+    .boxContainerLoja{
+        display: flex;
+        margin-bottom: 20px;;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .boxProduto{
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        min-width: 340px;
+    }
+
+    .produtos {
+        display: flex;
+    }
+
+    .boxCompra{
+        display: none;
+    }
 }
