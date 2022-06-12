@@ -44,7 +44,6 @@ h1 {
     margin-bottom: 5px;
 }
 
-
 .main-container {
     justify-content: center;
     align-items: center;
@@ -78,10 +77,6 @@ span .btn-save {
     display: flex;
     justify-content: center;
     margin-top: 25px;
-}
-
-.icon-container {
-
 }
 
 .icon {
