@@ -3,13 +3,12 @@ $(document).ready(function(){
   atualizaDados();
   carregarProdutos()
 });
-//window.onload = checaSessao(), atualizaDados(), carregarProdutos(); 
+window.onload = checaSessao(), atualizaDados(), carregarProdutos(); 
 
 function checaSessao() {
   $.ajax({
     dataType: "json",
-    type: "POST",
-    data: {},
+    type: "GET",
     url: "php/session.php",
     success: function (retorno) {
       if (retorno == "Session not valid, please log-in") {
@@ -26,8 +25,7 @@ function checaSessao() {
 function atualizaDados() {
   $.ajax({
     dataType: "json",
-    type: "POST",
-    data: {},
+    type: "GET",
     url: "php/php.php",
     success: function (retorno) {
       document.getElementById("username").innerHTML = retorno;
@@ -38,9 +36,7 @@ function atualizaDados() {
   function encerrarSessao(){
     $.ajax({
       dataType: "json",
-      type: "POST",
-      data: {
-      },
+      type: "GET",
       url: "php/encerrarSessao.php",
       success: function( retorno ) {
           if(retorno == 0){
@@ -110,6 +106,7 @@ function adicionarProduto(id, preco) {
       produto: id,
       qtd: 1,
       valor: preco,
+      preco: preco
     });
   }
   localStorage.setItem('carrinho', JSON.stringify(carrinho));
