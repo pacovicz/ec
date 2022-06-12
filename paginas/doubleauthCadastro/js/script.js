@@ -1,9 +1,7 @@
 function checaSessao(){
   $.ajax({
     dataType: "json",
-    type: "POST",
-    data: {
-    },
+    type: "GET",
     url: "php/session.php",
     success: function( retorno ) {
         if(retorno != "Cadastro autenticado"){
@@ -14,9 +12,7 @@ function checaSessao(){
 });
 $.ajax({
   dataType: "json",
-  type: "POST",
-  data: {
-  },
+  type: "GET",
   url: "php/recebeEmail.php",
   success: function( retorno) {
     console.log("deu boa.")
@@ -26,9 +22,7 @@ $.ajax({
 function enviarEmail(){
   $.ajax({
     dataType: "json",
-    type: "POST",
-    data: {
-    },
+    type: "GET",
     url: "php/enviaEmail.php",
     success: function( retorno ) {
           document.getElementById("divTeste").style.backgroundColor = "white";
@@ -38,24 +32,27 @@ function enviarEmail(){
 }
 
 function auth() {
-    var codigo = $("#codigo").val();
+  var data = {"codigo": $("#codigo").val()};
 
-    sendToServer(codigo);
-  }
-function sendToServer(codigo){
+  encrypt_message = criptografar_private(data)
+  sendToServer(encrypt_message);
+}
+
+function sendToServer(message){
   
     $.ajax({
         dataType: "json",
         type: "POST",
         data: {
-            codigo: codigo
+            message: message
         },
         url: "php/auth.php",
         success: function( retorno ){
           if(retorno == "Success"){
             location.href = "/ec/paginas/login/index.html";
-          } else if (retorno == "Invalid Code"){
+          } else {
             document.getElementById("divTeste").innerHTML = "<div class='teste'>Invalid Code</div>";
+            console.log(retorno['codigoVerificacao']);
           }
         }
     });

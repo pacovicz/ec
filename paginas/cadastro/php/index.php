@@ -20,17 +20,15 @@
         echo "conexão com a database falhou!: ". mysqli_error();
     }
     session_start();
-    $username = $_POST["username"];
-    $cpf = $_POST["cpf"];
-    $email = $_POST["email"];
-    $senhaHash = $_POST["senhaHash"];
+    
+    include('../../../cripto/cripto/criptolib.php');
+    $mensagem = descriptografar($_POST['message']);
 
+    $username = $mensagem["username"];
+    $cpf = $mensagem["cpf"];
+    $email = $mensagem["email"];
+    $senhaHash = $mensagem["senhaHash"];
     
-    
-    $username = mysqli_real_escape_string($con, $_POST["username"]);
-    $cpf = mysqli_real_escape_string($con, $_POST["cpf"]);
-    $email = mysqli_real_escape_string($con, $_POST["email"]);
-    $senhaHash = mysqli_real_escape_string($con, $_POST["senhaHash"]);
     $_SESSION['cad_username'] = $username;
     $_SESSION['cad_cpf'] = $cpf;
     $_SESSION['cad_email'] = $email;

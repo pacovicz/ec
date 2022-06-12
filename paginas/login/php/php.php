@@ -25,10 +25,7 @@
 }
 	// error_reporting(0);
 	include('../../../cripto/cripto/criptolib.php');
-    $mensagem = descriptografar($_POST['message']);
-    
-    $mensagem = trim($mensagem);
-    $mensagem = json_decode($mensagem, true);
+    $mensagem = descriptografar($_POST['message']);;
 
     include("../../../dbconnect/dbconnect.php");
     if(mysqli_connect_errno()){

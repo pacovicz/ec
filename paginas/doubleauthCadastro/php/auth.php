@@ -2,6 +2,7 @@
     
     session_start();
     include("../../../dbconnect/dbconnect.php");
+    include('../../../cripto/cripto/criptolib.php');
     if(mysqli_connect_errno()){
         echo "conexão com a database falhou!: ". mysqli_error();
     }
@@ -10,7 +11,10 @@
     $email = $_SESSION['cad_email'];
     $senhaHash = $_SESSION['cad_senhaHash'];
     
-    $codigoRecebido = $_POST["codigo"];
+    $data = descriptografar($_POST["message"]);
+    $codigoRecebido = $data['codigo'];
+    
+
     function checaCodigo(){
         global $codigoRecebido;
         if($codigoRecebido == $_SESSION['codigoVerificacao']){
@@ -24,5 +28,5 @@
         mysqli_query($con, $insert_intoDB);
         echo json_encode("Success");
     } else {
-        echo json_encode("Invalid Code, the code is: " . $_SESSION['codigoVerificacao']);
+        echo json_encode($_SESSION);
     }

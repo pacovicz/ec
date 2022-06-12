@@ -1,7 +1,7 @@
 
 function criptografar_private(data){
 
-    var mensagem = data;
+    var mensagem = JSON.stringify(data);
 
     var chave = CryptoJS.lib.WordArray.random(8);
     var iv = CryptoJS.lib.WordArray.random(8);

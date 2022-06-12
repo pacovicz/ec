@@ -2,9 +2,7 @@
 function checaSessao(){
   $.ajax({
     dataType: "json",
-    type: "POST",
-    data: {
-    },
+    type: "GET",
     url: "php/session.php",
     success: function( retorno) {
         if(retorno == "Already autenticated"){
@@ -16,59 +14,48 @@ function checaSessao(){
         }
     }
   });
-  $.ajax({
-    dataType: "json",
-    type: "POST",
-    data: {
-    },
-    url: "php/recebeEmail.php",
-    success: function(retorno) {
-        console.log("deu boa.")
-    }
-  });
 }
 
 
 function enviarEmail(){
   $.ajax({
     dataType: "json",
-    type: "POST",
-    data: {
-    },
+    type: "GET",
     url: "php/enviaEmail.php",
-    success: function(retornoPHP) {
-      console.log(retornoPHP)
-      document.getElementById("divTeste").style.backgroundColor = "white";
-      document.getElementById("divTeste").innerHTML = "<div class='teste'>Email sent to " + retornoPHP['email']+ "</div>";
-      console.log(retornoPHP['codigoVerificacao']);
-    }
+    success: function( retorno ) {
+          document.getElementById("divTeste").style.backgroundColor = "white";
+          document.getElementById("divTeste").innerHTML = "<div class='teste'>Email sent to " + retorno + "</div>";
+      } 
   });
 }
-
 
 function auth() {
-    var codigo = $("#codigo").val();
-    sendToServer(codigo);
-  }
+  var data = {"codigo": $("#codigo").val()};
 
-function sendToServer(codigo){
-  $.ajax({
-      dataType: "json",
-      type: "POST",
-      data: {
-          codigo: codigo
-      },
-      url: "php/auth.php",
-      success: function( retorno ){
-        if(retorno == "Valid autentication"){
-          location.href = "/ec/paginas/principal/index.html";
-        }  else if (retorno == "Invalid code"){
-          document.getElementById("divTeste").innerHTML = "<div class='teste'>Invalid Code</div>";
-        }
-      }
-  });
+  encrypt_message = criptografar_private(data)
+  sendToServer(encrypt_message);
 }
+
+function sendToServer(message){
   
+    $.ajax({
+        dataType: "json",
+        type: "POST",
+        data: {
+            message: message
+        },
+        url: "php/auth.php",
+        success: function( retorno ){
+          if(retorno == "Valid autentication"){
+            location.href = "/ec/paginas/principal/index.html";
+          } else {
+            document.getElementById("divTeste").innerHTML = "<div class='teste'>Invalid Code</div>";
+            console.log(retorno['codigoVerificacao']);
+          }
+        }
+    });
+}
+ 
 
 window.onload = checaSessao(), enviarEmail();
 

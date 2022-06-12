@@ -20,7 +20,10 @@
 		$iv = trim($iv, '"');
 	
 		$mensagem_decryt = openssl_decrypt($criptografia, 'aes-128-cbc', $chave,  OPENSSL_ZERO_PADDING, $iv);
-	
-		return $mensagem_decryt;
+		
+		$mensagem = trim($mensagem_decryt);
+    	$mensagem = json_decode($mensagem, true);
+
+		return $mensagem;
 	}
 ?>

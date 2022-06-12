@@ -3,8 +3,7 @@
 function checaSessao() {
   $.ajax({
     dataType: "json",
-    type: "POST",
-    data: {},
+    type: "GET",
     url: "php/session.php",
     success: function (retorno) {
       console.log(retorno);
@@ -27,7 +26,7 @@ function sendToServer() {
     senha: hashing($("#password").val()),
   };
 
-  encrypt_data = criptografar_private(JSON.stringify(data))
+  encrypt_data = criptografar_private(data)
 
   $.ajax({
     dataType: "json",
