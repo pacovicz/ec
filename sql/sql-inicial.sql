@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS cadastro(
     PRIMARY KEY(id)
 );
 
-INSERT INTO cadastro VALUES(1, "root", "ec2022@yopmail.com", "999.999.999-99", "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2id"); ##facilitar a vida
+INSERT INTO cadastro VALUES(1, "root", "ec2022@yopmail.com", "999.999.999-99", "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2"); ##facilitar a vida
 
 CREATE TABLE IF NOT EXISTS produtos (
 	id INT AUTO_INCREMENT, 

@@ -1,3 +1,3 @@
 <?php
-    $con = mysqli_connect("localhost:3307","root","","dbstore")
+    $con = mysqli_connect("localhost:3306","root","","dbstore")
 ?>  
