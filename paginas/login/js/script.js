@@ -26,6 +26,7 @@ function sendToServer() {
     senha: hashing($("#password").val()),
   };
 
+  console.log(data.senha);
   encrypt_data = criptografar_private(data)
 
   $.ajax({
