@@ -14,7 +14,6 @@
 	
 		$chave = trim($chave, '"');
 		
-		
 		$criptografia = $data['message'];
 	
 		$iv = trim($iv, '"');

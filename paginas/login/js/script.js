@@ -1,5 +1,3 @@
-
-
 function checaSessao() {
   $.ajax({
     dataType: "json",
@@ -26,7 +24,7 @@ function sendToServer() {
     senha: hashing($("#password").val()),
   };
 
-  encrypt_data = criptografar_private(data)
+  encrypt_data = criptografar_private(data);
 
   $.ajax({
     dataType: "json",
@@ -49,10 +47,9 @@ function sendToServer() {
   });
 }
 
-
-function hashing(senha){
-  const myString = senha
-  const myBitArray = sjcl.hash.sha256.hash(myString)
-  const myHash = sjcl.codec.hex.fromBits(myBitArray)
+function hashing(senha) {
+  const myString = senha;
+  const myBitArray = sjcl.hash.sha256.hash(myString);
+  const myHash = sjcl.codec.hex.fromBits(myBitArray);
   return myHash;
 }

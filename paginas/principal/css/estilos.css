@@ -3,7 +3,7 @@
   box-sizing: border-box;
   font-weight: bold;
   font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-              "Arial", sans-serif;
+    "Arial", sans-serif;
 }
 
 body #qtd {
@@ -20,7 +20,7 @@ body #qtd {
   padding-right: 6px;
 }
 
-a #qtd{
+a #qtd {
   text-align: center;
   font-size: 15px;
   text-decoration: none;
@@ -44,10 +44,10 @@ body {
   padding: 25px;
 }
 
-.container-perfil{
+.container-perfil {
   background: white;
   width: 20%;
-  height: 400px; 
+  height: 400px;
   padding: 3rem;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   border-radius: 22px;
@@ -67,7 +67,7 @@ body {
   height: 170px;
   border-radius: 50%;
   border-style: solid;
-  border-color:#ffa634;
+  border-color: #ffa634;
 }
 
 .user-name {
@@ -89,7 +89,7 @@ body {
   font-weight: bold;
 }
 
-.btn-perfil:hover{
+.btn-perfil:hover {
   background-color: #fcc434;
   cursor: pointer;
 }
@@ -112,10 +112,9 @@ body {
   position: static;
 }
 
-img icons{
+img icons {
   position: absolute;
 }
-
 
 .escondido {
   display: none;
@@ -165,7 +164,8 @@ img icons{
   flex: 10;
 }
 
-.card:hover, .card:focus {
+.card:hover,
+.card:focus {
   transition: 0.5s;
   transform: translateY(-5px);
   box-shadow: 2px 4px 10px rgba(32, 33, 37, 0.6);
@@ -201,7 +201,6 @@ img icons{
 }
 
 .btnCard {
-
   background-color: #ffb135;
   border-radius: 4px;
   padding-left: 18px;
@@ -214,40 +213,40 @@ img icons{
   margin-bottom: 5px;
 }
 
-.btnCard:hover{
+.btnCard:hover {
   background-color: #fcc434;
   cursor: pointer;
 }
 
-@media (max-width: 600px)  {
+@media (max-width: 600px) {
+  .produtos {
+    gap: 0;
+  }
 
-.produtos{
-  gap: 0;
-}
+  .card:hover,
+  .card:focus {
+    transform: none;
+  }
 
-.card:hover, .card:focus {
-  transform:none;
-}
+  .card::after {
+    height: 0;
+    width: 0;
+    border-radius: 0px;
+    top: 0;
+    left: 0;
+  }
 
-.card::after {
-  height: 0;
-  width: 0;
-  border-radius: 0px;
-  top: 0;
-  left: 0;
-}
+  .card__text {
+    padding: 0rem;
+  }
 
-.card__text {
-  padding: 0rem;
-}
-
-.card__image {
-  border-radius: 0 0 0px;
-  height: 0;
-  vertical-align: none;
-  width: 0;
-}
-  .container-perfil{
+  .card__image {
+    border-radius: 0 0 0px;
+    height: 0;
+    vertical-align: none;
+    width: 0;
+  }
+  .container-perfil {
     justify-content: center;
     width: 100%;
     background-color: #343434;
@@ -281,7 +280,7 @@ img icons{
     display: none;
   }
 
-  .btn-perfil{
+  .btn-perfil {
     display: none;
   }
 

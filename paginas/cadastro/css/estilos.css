@@ -153,11 +153,11 @@ button:hover {
   margin-top: 12px;
 }
 .alerta {
-    background-color: lightsalmon;
-    padding: 0.5rem;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    text-align: center;
+  background-color: lightsalmon;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 a {
