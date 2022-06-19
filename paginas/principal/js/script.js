@@ -3,7 +3,7 @@ $(document).ready(function () {
   atualizaDados();
   carregarProdutos();
 });
-window.onload = checaSessao(), atualizaDados(), carregarProdutos();
+window.onload = checaSessao(), atualizaDados();
 
 function checaSessao() {
   $.ajax({

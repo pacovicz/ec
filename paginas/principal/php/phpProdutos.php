@@ -1,7 +1,7 @@
 <?php
     include("../../../dbconnect/dbconnect.php");
     if(mysqli_connect_errno()) {
-        echo "conexão com a database falhou!: ".mysqli_error();
+        echo "conexão com a database falhou!: ";
     }
 
     $result = mysqli_query($con, "SELECT id, imagem, nome, preco FROM produtos", MYSQLI_USE_RESULT);

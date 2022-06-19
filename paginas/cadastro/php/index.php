@@ -17,7 +17,7 @@
         
     include("../../../dbconnect/dbconnect.php");
     if(mysqli_connect_errno()){
-        echo "conexão com a database falhou!: ". mysqli_error();
+        echo "conexão com a database falhou!: ";
     }
     session_start();
     
