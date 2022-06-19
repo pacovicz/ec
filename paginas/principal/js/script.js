@@ -3,7 +3,7 @@ $(document).ready(function () {
   atualizaDados();
   carregarProdutos();
 });
-(window.onload = checaSessao()), atualizaDados(), carregarProdutos();
+window.onload = checaSessao(), atualizaDados(), carregarProdutos();
 
 function checaSessao() {
   $.ajax({
@@ -60,56 +60,29 @@ function carregarProdutos() {
           `<img class='imgCard'src=${produto.imagem}>` +
           `<span class='nameCard'>${produto.nome}</span>` +
           `<span class='precoCard'><a id='coin'>US$</a> ${produto.preco}</span>` +
-          `<button class='btnCard' onclick='adicionarProduto(${produto.id}, ${produto.preco})'>Add to cart</button>` +
+          `<button class='btnCard' onclick='adicionarNoCarrinho(${produto.id})'>Add to cart</button>` +
           `</div>`;
       }
     },
   });
 }
 
-const ELEMENTO_CARREGANDO = "";
-const listaProdutos = document.querySelector(".produtos");
-
-fetch("php/phpProdutos.php", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-})
-  .then((res) => {
-    console.log(res);
-    return res.json();
-  })
-  .then((produtos) => {
-    listaProdutos.innerHTML = "";
-  });
-
-const carrinhoPersistido = JSON.parse(localStorage.getItem("carrinho"));
-const carrinho = carrinhoPersistido == null ? [] : carrinhoPersistido;
-const reducer = (valorAnterior, valorAtual) => valorAnterior + valorAtual;
-let qtdCarrinho =
-  carrinho.length > 0 ? carrinho.map((x) => x.qtd).reduce(reducer) : 0;
-
-function adicionarProduto(id, preco) {
-  const qtdCarrinhoIcon = document.querySelector(".qtd-carrinho");
-  qtdCarrinhoIcon.classList.remove("escondido");
-  qtdCarrinho++;
-  qtdCarrinhoIcon.textContent = qtdCarrinho;
-  const produtoNoCarrinho = carrinho.find((item) => item.produto === id);
-  if (produtoNoCarrinho) {
-    produtoNoCarrinho.qtd++;
-    produtoNoCarrinho.preco += preco;
-  } else {
-    carrinho.push({
-      produto: id,
-      qtd: 1,
-      valor: preco,
-      preco: preco,
-    });
+function adicionarNoCarrinho(id){
+  var data = {
+    'id':id
   }
-  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  data_encrypt = criptografar_private(data)
+  const qtdCarrinhoIcon = document.querySelector(".qtd-carrinho");
+  $.ajax({
+    dataType: "json",
+    type: "POST",
+    data: {
+      message:data_encrypt
+    },
+    url: "php/phpCarrinho.php",
+    success: function (retorno) {
+      qtdCarrinhoIcon.classList.remove("escondido");
+      qtdCarrinhoIcon.textContent = retorno['count(*)'];
+    }
+  })
 }
-
-const qtdCarrinhoIcon = document.querySelector(".qtd-carrinho");
-qtdCarrinhoIcon.classList.remove("escondido");
-qtdCarrinhoIcon.textContent = qtdCarrinho;

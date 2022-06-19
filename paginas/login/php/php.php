@@ -1,7 +1,7 @@
 <?php
     function login(){
         global $email, $con, $senhaHash;
-        $query = sprintf("SELECT username, email, cpf, senhaHash FROM cadastro");
+        $query = sprintf("SELECT id, username, email, cpf, senhaHash FROM cadastro");
         $dados = mysqli_query($con, $query);
         $linha = mysqli_fetch_assoc($dados);
         $total = mysqli_num_rows($dados);
@@ -9,6 +9,7 @@
             if($linha['email'] == $email){
                 if($linha['senhaHash'] == $senhaHash){
                     session_start();
+                    $_SESSION['id'] = $linha['id'];
                     $_SESSION['username'] = $linha['username'];
                     $_SESSION['email'] = $linha['email'];
                     $_SESSION['cpf'] = $linha['cpf'];

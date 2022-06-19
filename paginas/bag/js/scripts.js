@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  carregarPaginaCarrinho();
+  carregarProdutos();
   criaInfoEnvio();
   criaValores();
 });
@@ -45,45 +45,32 @@ function retirarDoCarrinho(id, produto) {
   criaValores();
 }
 
-function carregarPaginaCarrinho() {
-  const listaProdutos = document.querySelector(".produtos");
-  listaProdutos.innerHTML = ELEMENTO_CARREGANDO;
-
-  fetch("../../paginas/principal/php/phpProdutos.php", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((produtos) => {
-      const listaProdutos = document.querySelector(".produtos");
-
-      if (!carrinho) {
-        listaProdutos.innerHTML = `<a class='semItem'>Nenhum item adicionado</a>`;
-
-        return;
-      }
-
-      for (let i = 0; i < carrinho.length; i++) {
-        const itemCarrinho = carrinho[i];
-        const produto = produtos.find((p) => p.id == itemCarrinho.produto);
-
-        listaProdutos.innerHTML +=
-          `<div class='produto'>` +
-          `<div class='card'>` +
-          `<img class='imgCard' src='${produto.imagem}'> ` +
-          `<span>${produto.nome}</span> ` +
+function carregarProdutos(){
+    $.ajax({
+      dataType: "json",
+      type: "GET",
+      url: "php/phpCarrinho.php",
+      success: function (retorno) {
+        const produtos = retorno;
+        const produtosDiv = document.querySelector(".produtos");
+        for (let i = 0; i < produtos.length; i++) {
+        const produto = produtos[i];
+        produtosDiv.innerHTML +=
+        `<div class='produto'>` +
+        `<div class='card'>` +
+        `<img class='imgCard' src='${produto.imagem}'> ` +
+        `<span>${produto.nome}</span> ` +
           `<div class='acoes'> ` +
-          `<button id='btnMenos' onclick='retirarDoCarrinho(${itemCarrinho.produto}, this)'><i class='fas fa-minus'></i></button> ` +
-          `<b class='countA' >${itemCarrinho.qtd}</b> ` +
-          `<button id='btnMais' onclick='adicionarNoCarrinho(${itemCarrinho.produto}, this)'><i class='fas fa-plus'></i></button> ` +
+          `<button id='btnMenos' onclick='retirarDoCarrinho(this)'><i class='fas fa-minus'></i></button> ` +
+          `<b class='countA' ></b> ` +
+          `<button id='btnMais' onclick='adicionarNoCarrinho(this)'><i class='fas fa-plus'></i></button> ` +
           `</div>` +
-          `</div> ` +
-          `</div>`;
+          `</div> `
       }
-    });
+    }
+  })
 }
+
 
 function criaInfoEnvio() {
   const envioInfo = document.querySelector(".arriveDay");
@@ -103,64 +90,41 @@ function criaInfoEnvio() {
 
 function criaValores() {
   precoTotal = 0;
-
-  if (window.localStorage.getItem("carrinho") == null) {
-    const envioInfo = document.querySelector(".infos");
-    envioInfo.innerHTML =
-      `<div class='controle-valores'>` +
-      `<div class='subtotal-configura'>` +
-      `<span id='text-subtotal'>Subtotal</span>` +
-      `<div id='subtotal-valor'>$${precoTotal}.00</div>` +
-      `</div>` +
-      `<div class='taxes-configura'>` +
-      `<span id='taxes-taxes' class='taxes'>Taxes</span>` +
-      `<div id='text-taxes' class='taxes'>Calculated at checkout</div>` +
-      `</div>` +
-      `<div class='barra'>` +
-      `<span id='barrinha1' class='barrinha'></span>` +
-      `</div>` +
-      `<div class="estimated-total">` +
-      `<span id='text-estimated-total' class='est-total'>Estimated total</span>` +
-      `<div id='est-total-valor' class='est-total'>$${precoTotal}.00</div>` +
-      `</div>` +
-      `<div class='barra'>` +
-      `<span id='barrinha2' class='barrinha'></span>` +
-      `</div>` +
-      `<a href='http://dontpad.com/willinlindo'>` +
-      `<button class='btn-checkout' >Continue to checkout</button>` +
-      `</a>` +
-      `</div>`;
-  } else {
-    itensCarrinho = JSON.parse(window.localStorage.getItem("carrinho"));
-    for (i = 0; i < window.localStorage.length; i++) {
-      precoTotal += itensCarrinho[i]["preco"];
+  $.ajax({
+    dataType: "json",
+    type: "GET",
+    url: "php/phpCarrinho.php",
+    success: function (retorno) {
+      const produtos = retorno;
+      for (let i = 0; i < produtos.length; i++) {
+        const produto = produtos[i];
+        precoTotal = precoTotal + parseInt(produto.preco)
+      }
+      const envioInfo = document.querySelector(".infos");
+      envioInfo.innerHTML =
+        `<div class='controle-valores'>` +
+        `<div class='subtotal-configura'>` +
+        `<span id='text-subtotal'>Subtotal</span>` +
+        `<div id='subtotal-valor'>$${precoTotal}.00</div>` +
+        `</div>` +
+        `<div class='taxes-configura'>` +
+        `<span id='taxes-taxes' class='taxes'>Taxes</span>` +
+        `<div id='text-taxes' class='taxes'>Calculated at checkout</div>` +
+        `</div>` +
+        `<div class='barra'>` +
+        `<span id='barrinha1' class='barrinha'></span>` +
+        `</div>` +
+        `<div class="estimated-total">` +
+        `<span id='text-estimated-total' class='est-total'>Estimated total</span>` +
+        `<div id='est-total-valor' class='est-total'>$${precoTotal}.00</div>` +
+        `</div>` +
+        `<div class='barra'>` +
+        `<span id='barrinha2' class='barrinha'></span>` +
+        `</div>` +
+        `<a href='http://dontpad.com/willinlindo'>` +
+        `<button class='btn-checkout' >Continue to checkout</button>` +
+        `</a>` +
+        `</div>`;
     }
-    console.log(precoTotal);
-
-    const envioInfo = document.querySelector(".infos");
-    envioInfo.innerHTML =
-      `<div class='controle-valores'>` +
-      `<div class='subtotal-configura'>` +
-      `<span id='text-subtotal'>Subtotal</span>` +
-      `<div id='subtotal-valor'>$${precoTotal}.00</div>` +
-      `</div>` +
-      `<div class='taxes-configura'>` +
-      `<span id='taxes-taxes' class='taxes'>Taxes</span>` +
-      `<div id='text-taxes' class='taxes'>Calculated at checkout</div>` +
-      `</div>` +
-      `<div class='barra'>` +
-      `<span id='barrinha1' class='barrinha'></span>` +
-      `</div>` +
-      `<div class="estimated-total">` +
-      `<span id='text-estimated-total' class='est-total'>Estimated total</span>` +
-      `<div id='est-total-valor' class='est-total'>$${precoTotal}.00</div>` +
-      `</div>` +
-      `<div class='barra'>` +
-      `<span id='barrinha2' class='barrinha'></span>` +
-      `</div>` +
-      `<a href='http://dontpad.com/willinlindo'>` +
-      `<button class='btn-checkout' >Continue to checkout</button>` +
-      `</a>` +
-      `</div>`;
+  })    
   }
-}
