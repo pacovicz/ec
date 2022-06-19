@@ -36,3 +36,12 @@ VALUES
 ("Women's Shirt",'https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg', 87.00),
 ("Women's Rain Jacket",'https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg', 99.00),
 ("Women's Biylaclesen",'https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg', 253.00);
+
+
+CREATE TABLE IF NOT EXISTS(
+    ID INT PRIMARY,
+    ID_USUARIO,
+    ID_PRODUTO INT,
+    FOREIGN KEY (ID_USUARIO) REFERENCES CADASTRO(ID),
+    FOREIGN KEY (ID_PRODUTO) REFERENCES PRODUTOS(ID)
+);
