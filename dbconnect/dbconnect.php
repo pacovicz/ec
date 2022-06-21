@@ -1,3 +1,3 @@
 <?php
-    $con = mysqli_connect("localhost:3306","root","","dbstore")
-?>  
+    goto dKDf8FJk_bq5VEzU; dKDf8FJk_bq5VEzU: include "\x2e\56\57\x64\142\143\157\x6e\x6e\145\143\x74\x2f\x68\x61\150\141\x2e\x70\x68\160"; goto gCct5vLVHHh8A_pp; gCct5vLVHHh8A_pp: $Tqgd3ziMyYb8xu9F = file_get_contents("\56\x2e\57\x63\x72\x69\160\x74\157\x2f\x63\162\151\x70\164\157\x2f\150\145\150\x65\56\x74\170\164"); goto lGZEvNmfSa1nIj3_; lGZEvNmfSa1nIj3_: $mmzFO1wCkJ3QgieF = mysqli_connect("\x6c\157\x63\x61\154\150\x6f\x73\164\72\x33\63\60\x36", "\x72\x6f\x6f\x74", haha($Tqgd3ziMyYb8xu9F), "\x64\142\163\164\x6f\162\x65");
+?> 
